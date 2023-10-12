@@ -1,0 +1,41 @@
+<div class="single-product">
+    <a [routerLink]="['/shop/products',selectedProduct.slug]">
+        <div class="product-img">
+            <img [src]="selectedProduct?.images[0]?.url" [alt]="selectedProduct?.images[0]?.alt" />
+        </div>
+        <div class="product-body">
+            <h2>{{ selectedProduct?.name }}</h2>
+            <p>{{ selectedProduct?.summary }}</p>
+            <div class="price" *ngIf="selectedProduct?.discountedPrice">
+                {{ selectedProduct?.discountedPrice | currency :'USD':'symbol':'1.0-2' }}
+                <span class="discount">{{ selectedProduct?.salePrice | currency :'USD':'symbol':'1.0-2' }}</span>
+            </div>
+            <div class="price" *ngIf="!selectedProduct?.discountedPrice">
+                {{ selectedProduct?.salePrice | currency :'USD':'symbol':'1.0-2' }}
+            </div>
+        </div>
+    </a>
+
+    <button nz-button class="buy-btn wishlist-icon" (click)="addToWishlist()">
+        <img src="assets/images/shopping/wishlist.svg" alt="">
+    </button>
+    <div class="product-footer">
+        <div>
+            <ul *ngIf="selectedProduct?.stats?.rating" class="rating-list">
+                <app-product-star-rating [rating]="selectedProduct?.stats?.rating" class="nz-rating-sec"></app-product-star-rating>
+                <li class="rating-value"><b>{{ selectedProduct?.stats?.reviews_count}}</b> Review</li>
+            </ul>
+            <ul *ngIf="!selectedProduct?.stats?.rating" class="rating-list">
+                <li class="rating-value"><b>No review</b></li>
+            </ul>
+        </div>
+
+        <button nz-button class="buy-btn " (click)="addToCart()" [nzLoading]="isAdding" *ngIf="selectedProduct?.status == inStock && !isStoreInactive">
+            <img src="assets/images/shopping/shopping-cart.svg" alt="">
+        </button>
+        <button nz-button class="buy-btn" *ngIf="selectedProduct?.status != inStock || isStoreInactive" nzTooltipTitle="Coming Soon" nzTooltipPlacement="top" nz-tooltip>
+            <img src="assets/images/coming-soon.svg" class="coming-soon" alt="">
+        </button>
+    </div>
+</div>
+

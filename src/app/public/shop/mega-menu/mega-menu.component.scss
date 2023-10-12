@@ -1,0 +1,463 @@
+::ng-deep .common-layout .page-container .main-content{
+    background: #fff !important;
+}
+.mega-dropdown{
+    .mega-dropdown-btn{
+        width:100%;
+        display: block;
+        border:1px solid #156297;
+        padding: 11px 15px;
+        position: relative;
+        color: #156297;
+        border-radius: 3px;
+        font-family: "josefin_sansregular";
+        &:after{
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translate(-50%, -50%) rotate(0deg);
+            width: 12px;
+            height: 12px;
+            background: url(../../../../assets/images/shopping/arrow-down.png);
+            transition: 0.5s all ease;
+            background-size:cover;
+        }
+    }
+    &.rotate-arrow-down{
+        .mega-dropdown-btn{
+            &:after{
+                transform: translate(-50%, -50%) rotate(-180deg);
+                transition: 0.5s all ease;
+            }
+        }
+    }
+    .mega-menu-body-sec{
+        position: absolute;
+        top: 40px;
+        left: 0px;
+        width: 100%;
+        z-index: 9999;
+        padding: 20px 0px;
+        display: none;
+        .megamenu-menu-body{
+            position: absolute;
+            top: 40px;
+            left: 50%;
+            width: 100%;
+            z-index: 1;
+            padding: 15px;
+            transform: translate(-50%, 0px);
+            border: 1px solid rgb(238, 238, 238);
+            background: #fff;
+            .sub-catagories-sec{
+                display: flex;
+                flex-wrap: wrap;
+                height: 100%;
+                justify-content: flex-start;
+                .top-category{
+                    position: relative;
+                    width: 100%;
+                    .category-tab-row-main{
+                        display: flex;
+                        align-items: flex-start;
+                        .category-tab-row{
+                            display: flex;
+                            align-items: center;
+                            padding: 10px 20px 10px;
+                            border-bottom: 1px solid #E7E7E7;
+                            cursor: pointer;
+                            margin: 0px;
+                            background: #F1F1F1;
+                            width: 250px;
+                            .category-icon{
+                                display: flex;
+                                width: 45px;
+                                height: 45px;
+                                margin-right: 20px;
+                                img{
+                                    max-width: 28px;
+                                    margin:auto;
+                                }
+                                ::ng-deep cl-image{
+                                    margin:auto;
+                                    img{
+                                        max-width: 28px;
+                                        margin:auto;
+                                    } 
+                                }
+                            }
+                            h4{
+                                color: #000;
+                                font-size: 18px;
+                                text-align: left;
+                                font-family: "josefin_sansregular";
+                                margin: 0px;
+                            }
+                        }
+                        .category-tab-row-right-body{
+                            position: absolute;
+                            left: 265px;
+                            top:15px;
+                            width: 100%;
+                            display: none;
+                            .right-subcategory-list{
+                                margin: 0px;
+                                column-count: 2;
+                                column-gap: 80px;
+                                column-fill: balance;
+                                li{
+                                    display: block;
+                                    a{
+                                        display: inline-block;
+                                        color: #156297;
+                                        font-family: "josefin_sanslight";
+                                        margin-bottom: 5px;
+                                        font-size: 16px;
+                                        font-weight: 600;
+                                        position: relative;
+                                        padding-left: 15px;
+                                        border-bottom: 1px solid transparent;
+                                        padding-bottom: 3px;
+                                        &:hover{
+                                            border-color: #156297;
+                                        }
+                                        &::before{
+                                            content: '';
+                                            position: absolute;
+                                            top:9px;
+                                            left: 0px;
+                                            width: 6px;
+                                            height: 6px;
+                                            background: #156297;
+                                            border-radius: 50px;
+                                        }
+                                    }
+                                }
+                            }
+
+                        }
+                        &.selected{
+                            .category-tab-row-right-body{
+                                display: block;
+                            }
+                        }
+                        &:nth-child(1){
+                            .category-tab-row-right-body{
+                                display: block;
+                            }
+                        }
+                    }
+                       
+                    .top-category-menu{
+                        margin: 0px;
+                       >li{
+                            list-style: none;
+                            display: inline-block;
+                            >a{
+                                display: inline-block;
+                                color: #000;
+                                font-weight: 500;
+                                font-size: 14px;
+                                padding: 20px 30px 20px 10px;
+                                cursor: pointer;
+                                &.drop-icon{
+                                    position: relative;
+                                    &:after{
+                                        content: "";
+                                        position: absolute;
+                                        top: 50%;
+                                        right: 5px;
+                                        transform: translate(-50%, -50%) rotate(0deg);
+                                        width: 12px;
+                                        height: 12px;
+                                        background: url(../../../../assets/images/shopping/arrow-down-black.png);
+                                        transition: 0.5s all ease;
+                                        background-size: cover;
+                                    }
+                                }
+                            }
+                            .top-category-submenu{
+                                position: absolute;
+                                top: 78px;
+                                left: 50%;
+                                transform: translate(-50%, 0%);
+                                background: #fff;
+                                display: flex;
+                                padding-top: 0px;
+                                min-height: 450px;
+                                padding: 20px;
+                                box-shadow: 0px 13px 10px 10px rgb(0 0 0 / 0.05);
+                                border: 1px solid #f7f7f7;
+                                display: none;
+                                .sub-catagories-list{
+                                    white-space: normal;
+                                    padding: 15px 15px 15px 15px;
+                                    box-sizing: border-box;
+                                    min-width:250px;
+                                    h2{
+                                        font-size: 16px;
+                                        text-transform: capitalize;
+                                        color: #000;
+                                        font-family: "josefin_sansregular";
+                                        padding-bottom: 4px;
+                                        white-space: nowrap;
+                                        border-bottom: 1px solid #eee;
+                                        margin-bottom: 10px;
+                                    }
+                                    ul{
+                                        li{
+                                            list-style: none;
+                                            a{
+                                                color: #156297;
+                                                font-size: 13px;
+                                                margin: 0px 0px 8px;
+                                                line-height: normal;
+                                                cursor: pointer;
+                                                word-break: break-word;
+                                                white-space: normal;
+                                                display: block;
+                                                cursor: pointer;
+                                                &:hover{
+                                                    color: #000 !important;
+                                                }
+                                                &:focus{
+                                                    outline: none;
+                                                }
+                                            }
+                                        }
+                                    }
+                                    &.side-banner{
+                                        min-width: 350px;
+                                        .category-right-img{
+                                            position: relative;
+                                            background: #7d02a7;
+                                            &.Fashion-bg{
+                                                background: #f9f9f9;
+                                            }
+                                            .category-overlay-txt{
+                                                position: absolute;
+                                                top: 20px;
+                                                left: 50%;
+                                                z-index: 2;
+                                                transform: translate(-50%, 0);
+                                                text-align: center;
+                                                h2{
+                                                    color: #fff;
+                                                }
+                                                a{
+                                                    color: #fff;
+                                                    background: #ff4020;
+                                                    border-radius: 4px;
+                                                    padding: 10px 20px;
+                                                    font-size: 15px;
+                                                    font-weight: 500;
+                                                    margin-top: 10px;
+                                                    display: inline-block;
+                                                }
+                                            }
+                                            &:after{
+                                                content: '';
+                                                position: absolute;
+                                                top:0px;
+                                                left: 0px;
+                                                width:100%;
+                                                height: 100%;
+                                                background: rgba(0,0,0,0.4);
+                                            }
+                                            img{
+                                                width:100%;
+                                                height: 450px;
+                                                object-fit: cover;
+                                            }
+                                        }
+                                    }
+                                }
+
+                            }
+                            
+                            &.category-submenu-list:hover .top-category-submenu{
+                                   display: flex;
+                                   z-index: 2;
+                            }
+                            
+                            &.category-submenu-list:hover .drop-icon{
+                                &:after{
+                                    transform: translate(-50%, -50%) rotate(-180deg);
+                                    transition: 0.5s all ease;
+                                }
+                        }
+                        }
+                    }
+                }
+                
+            }
+        }
+    }
+    &.hide-on-lg{
+        display: none;
+    }
+}
+
+
+
+.bg-electronic{
+    background: #00BDD7;
+}
+.bg-Fashion{
+    background: #B81F69;
+}
+.bg-Health{
+    background: #FF84C6;
+}
+.bg-Collectibles{
+    background: #18682A;
+}
+.bg-Motors{
+    background: #E2BE00;
+}
+.bg-Sports{
+    background: #000000;
+}
+.bg-Home-Garden{
+    background: #FF5FE5;
+}
+.bg-Business{
+    background: #C01DFA;
+}
+.bg-Entertainment{
+    background: #FF0000;
+}
+@media screen and (max-width:992px){
+    .list-scroll{
+        height: calc(100vh - 120px);
+        overflow-y: auto;
+    }
+    .list-scroll::-webkit-scrollbar {
+        width: 6px;
+        background: #eee;
+      }
+      
+      .list-scroll::-webkit-scrollbar-track {
+        border-radius: 10px;
+      }
+       
+      .list-scroll::-webkit-scrollbar-thumb {
+        background:#ff4020; 
+        border-radius: 10px;
+      }
+      
+    .mega-dropdown{
+        &.on-mobile-mega-menu{
+            .mega-dropdown-btn{
+                height: 40px;
+                width: 40px;
+                display: flex;
+                padding: 0px;
+                text-align: center;
+                border-radius: 100%;
+                background: #156297;
+                &:after{
+                    display: none;
+                }
+                ::ng-deep i{
+                    margin: auto;
+                    svg{
+                        fill: #fff;
+                        width:18px;
+                        height: 18px;
+                    }
+                }
+            }
+            .mega-menu-body-sec{
+                position: fixed;
+                top: 68px;
+                right: -100%;
+                width: 100%;
+                padding: 0px;
+                z-index: 1;
+                height: calc(100vh - 68px);
+                display: none;
+                left: auto;
+                transition: 0.5s all ease;
+                display: block;
+                opacity: 0;
+                .megamenu-menu-body{
+                    height: 100%;
+                    .close-side-bar{
+                        padding: 10px;
+                        border-bottom: 1px solid #ccc;
+                        background: #fff;
+                        display: flex;
+                        align-items: center;
+                        ::ng-deep i{
+                            svg{
+                                fill: #000;
+                                width: 30px;
+                                height: 30px;
+                            }
+                        }
+                    }
+                    .sub-catagories-sec{
+                        display: block;
+
+                        .sub-catagories-list{
+                            width:100%;
+                            padding:0px;
+                            border-bottom: 1px solid #ccc;
+                            &:nth-child(even){
+                                background: #fff;
+                            }
+                            ul{
+                                li{
+                                    margin-bottom: 0px;
+                                }
+                            }
+                            ::ng-deep .slide-list-item{
+                                .mobile-subcategory-list{
+                                    h2{
+                                        font-size: 15px;
+                                        font-weight: 500;
+                                        padding-left: 15px;
+                                    }
+                                }
+                                .ant-menu-submenu{
+                                    .ant-menu-submenu-title{
+                                        padding-left: 10px !important;
+                                        &:focus{
+                                            outline: none;
+                                        }
+                                        &:active{
+                                            background: transparent;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &.hide-on-mobile{
+            display: none;
+        }
+        &.hide-on-lg{
+            display: block;
+        }
+    }
+    ::ng-deep .slide-bar{
+        overflow: hidden;
+        .mega-dropdown{
+            &.on-mobile-mega-menu{
+                &.hide-on-lg{
+                    .mega-menu-body-sec{
+                        display: block;
+                        transition: 0.5s all ease;
+                        right:0px;
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+}

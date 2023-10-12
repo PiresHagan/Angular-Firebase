@@ -1,0 +1,246 @@
+.agency-main{
+    padding:15px;
+    margin-bottom: 20px;
+}
+.red-btn{
+    padding: 13px 20px 8px 20px !important;
+    font-size:18px;
+    background: #ff4020;
+    color: #fff;
+    border:0px !important;
+    border-radius: 1px;
+    cursor: pointer;
+    font-family: "josefin_sanssemibold";
+    text-transform: uppercase;
+    &:focus{
+        border: 0px !important;
+    }
+}
+::ng-deep .custom-data-tbl{
+    .ant-table-thead{
+        .ant-table-row{
+            background-color: #000;
+            color: #fff;
+            th{
+                border-color: #EFEBEB;
+                color: #000;
+                font-family: "josefin_sansregular";
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 14px;
+                letter-spacing: 0em;
+                text-align: left;
+                background: #EFEBEB;
+                .ant-table-column-sorters{
+                    display: flex;
+                    justify-content: space-between;
+                    .active{
+                        color:#ff4020 !important;
+                        background: transparent;
+                    }
+                }
+                span{
+                    color: #000;
+                }
+                &:hover{
+                    background-color: #EFEBEB
+                }
+            }
+        }
+    }
+    .ant-table-tbody{
+        .ant-table-row{
+            td{
+                padding: 10px;
+                font-family: "open_sansregular";
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 19px;
+                color: #858585;
+                .product-checkout-detail{
+                    margin-bottom: 20px;
+                    h5{
+                        color:#000;
+                        margin: 0px;
+                        font-size: 17px;
+                        font-family: "josefin_sansregular";
+                    }
+                    p{
+                        margin: 0px;
+                        color: #616161;
+                        font-family: "open_sansregular";
+                    }
+                }
+                .quantity-count{
+                    .ant-btn-group{
+                        display: inline-flex;
+                        .ant-btn{
+                            border: 0px;
+                            width: 28px;
+                            height: 28px;
+                            border-radius: 100%;
+                            padding: 0px;
+                            .anticon{
+                                margin: auto;
+                            }
+                            .ant-scroll-number{
+                                box-shadow: unset;
+                            }
+                            box-shadow: unset;
+                            &.ant-btn-icon-only{
+                                border: 1px solid #000;
+                                box-shadow: unset;
+                                margin: 0px 5px;
+                                display: flex;
+                                background: #000;
+                                color: #fff;
+                                text-align: center;
+                                line-height: 28px;
+                                &:hover{
+                                    background: #000;
+                                }
+                                
+                            }
+
+                        }
+                        .ant-btn:hover{
+                            background: #fff;
+                            border-color: #fff;
+                        }
+                        
+                    }
+                    .ant-badge-count{
+                        background: transparent;
+                        transform: translate(50%,-70%);
+                        span{
+                            p{
+                                color:#000;
+                            }
+                        }
+                    }
+                }
+            }
+            &:hover td{
+                background: #f5f5f5;
+            }
+            .delete-btn{
+                font-family: "open_sansregular";
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 19px;
+                letter-spacing: 0em;
+                text-align: left;
+                color: #FF4020;
+                border:0px;
+                box-shadow: unset;
+                background: transparent;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                .anticon{
+                    color: #FF4020;
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+}
+::ng-deep .custom-border-tbl{
+    border:1px solid #D6D6D6;
+    .ant-table-thead{
+        .ant-table-row{
+            th{
+                border-bottom: 1px solid #D6D6D6;
+            }
+        }
+    }
+    .ant-table-tbody{
+        .ant-table-row{
+            td{
+                .billing-form{
+                    padding-top: 20px;
+                    input {
+                        height: 43px;
+                        width: 100%;
+                        border-radius: 3px;
+                        border:1px solid #BCBCBC;
+                        color: #000;
+                        font-family: "josefin_sansregular";
+                        font-size: 20px;
+                        &::-webkit-input-placeholder {
+                            color: #C8C8CA;
+                        }
+        
+                        &:-ms-input-placeholder {
+                            color: #C8C8CA;
+                        }
+        
+                        &::placeholder {
+                            color: #C8C8CA;
+                        }
+                    }
+                    .ant-select-selector{
+                        height: 43px;
+                        width: 100%;
+                        border-radius: 3px;
+                        border:1px solid #BCBCBC;
+                        color: #000;
+                        font-family: "josefin_sansregular";
+                        font-size: 20px;
+                        text-align: left;
+                        display: flex;
+                        align-items: center;
+                }
+                .ant-form-item-control-input-content{
+                    textarea{
+                        width: 100%;
+                        border-radius: 3px;
+                        border:1px solid #BCBCBC;
+                        color: #000;
+                        font-family: "josefin_sansregular";
+                        font-size: 20px;
+                    }
+                }
+                }
+            }
+            &:hover td{
+                background: transparent;
+            }
+        }
+    }
+}
+::ng-deep .tbl-fonts{
+    h3{
+        font-family: "josefin_sansregular";
+    }
+    .ant-radio-group{
+        span{
+            font-family: "josefin_sansregular"; 
+        }
+    }
+}
+.cart-order-detail{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: "josefin_sansregular";
+}
+.checkout-detail-footer{
+    button{
+        border: 0px;
+        background: transparent;
+        display: flex;
+        align-items: center;
+        font-weight: 600;
+        color: #0376B7;
+        font-size: 18px;
+        outline: none;
+        cursor: pointer;
+        svg{
+            margin-right: 10px;
+        }
+    }
+}

@@ -1,0 +1,39 @@
+
+
+.btn-black{
+    background: #000000;
+    border-radius: 3px;
+    font-family: "josefin_sansregular";
+    font-style: normal;
+    text-transform: uppercase;
+    font-size: 18px;
+    color: #FFFFFF;
+    padding:10px 20px 4px 20px;
+    border:0px;
+    &.btn-white{
+        background: #fff;
+        color:#000;
+    }
+
+}
+
+img{
+    width: 200px;
+    height: 200px;
+    -o-object-fit: cover;
+    object-fit: contain;
+    border-radius: 10px;
+    border:1px solid #eee;
+    padding: 20px;
+    border-radius: 100%;
+}
+.img-overlay-txt{
+    position: unset;
+    transform: unset;
+    text-align: center;
+    h2{
+        font-size: 20px;
+        margin: 10px 0px 20px;
+        color: #000;
+    }
+}

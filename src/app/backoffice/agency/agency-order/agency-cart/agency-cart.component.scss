@@ -1,0 +1,135 @@
+.cart-modal{
+    position: relative;
+    .cart-modal-main{
+        background: #fff;
+        border: 1px solid #d6d6d6;
+        position: absolute;
+        top: 100%;
+        right: 0px;
+        width: 400px;
+        z-index: 1;
+        box-shadow: 0px 0px 4px 8px rgb(0 0 0 / 2%);
+        .cart-modal-header{
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            justify-content: space-between;
+            border-bottom: 1px solid #eee;
+            h2{
+                margin: 0px;
+                font-family: "josefin_sansregular";
+                font-size: 20px;
+            }
+            div{
+                cursor: pointer;
+                .fas{
+                    font-size: 22px;
+                
+                }
+            }
+
+        }
+        .cart-modal-body{
+            padding: 15px 15px 0px 15px;
+            .agency-cart-popup-row{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                border-bottom: 1px solid #d6d6d6;
+                padding-bottom: 10px;
+                margin-bottom: 10px;
+                h2{
+                    font-size: 20px;
+                    font-family: "josefin_sanslight";
+                    margin: 0px;
+                    
+                span{
+                    display: block;
+                    text-align: left;
+                }
+                }
+                &:last-child{
+                    border-bottom: 0px;
+                }
+            }
+            .cart-quantity{
+                span{
+                    font-size: 18px;
+                    font-family: "josefin_sansregular";
+                }
+                h3{
+                    font-size: 20px;
+                    font-family: "josefin_sansregular";
+                }
+            }
+            // ::ng-deep .quantity-count{
+            //     .ant-btn-group{
+            //         display: inline-flex;
+            //         .ant-btn{
+            //             border: 0px;
+            //             width: 28px;
+            //             height: 28px;
+            //             border-radius: 100%;
+            //             padding: 0px;
+            //             .anticon{
+            //                 margin: auto;
+            //             }
+            //             .ant-scroll-number{
+            //                 box-shadow: unset;
+            //             }
+            //             box-shadow: unset;
+            //             &.ant-btn-icon-only{
+            //                 border: 1px solid #000;
+            //                 box-shadow: unset;
+            //                 margin: 0px 5px;
+            //                 display: flex;
+            //                 background: #000;
+            //                 color: #fff;
+            //                 text-align: center;
+            //                 line-height: 28px;
+            //                 &:hover{
+            //                     background: #000;
+            //                 }
+                            
+            //             }
+
+            //         }
+            //         .ant-btn:hover{
+            //             background: #fff;
+            //             border-color: #fff;
+            //         }
+                    
+            //     }
+            //     .ant-badge-count{
+            //         background: transparent;
+            //         transform: translate(50%,-70%);
+            //         span{
+            //             p{
+            //                 color:#000;
+            //             }
+            //         }
+            //     }
+            // }
+        }
+        .cart-modal-footer{
+            padding-top:15px;
+            padding-bottom: 15px;
+            border-top:1px solid #d6d6d6;
+            .red-btn{
+                padding: 13px 20px 8px 20px !important;
+                font-size:18px;
+                background: #ff4020;
+                color: #fff;
+                border:0px !important;
+                border-radius: 1px;
+                cursor: pointer;
+                font-family: "josefin_sanssemibold";
+                text-transform: uppercase;
+                &:focus{
+                    border: 0px !important;
+                }
+            }
+        }
+    }
+}
+

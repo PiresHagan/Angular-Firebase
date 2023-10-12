@@ -1,0 +1,71 @@
+<div class="mega-dropdown hide-on-mobile"  (mouseenter)="showMegaMenu()" (mouseleave)="hideMegaMenu()"
+    [ngClass]="rotateArrow"
+    (mouseover)="rotateArrow='rotate-arrow-down'"
+    (mouseout)="rotateArrow=''">
+    <a class="mega-dropdown-btn">Shop by category</a>
+    <div class="mega-menu-body-sec" id="mega-menu-body">
+        <div class="megamenu-menu-body">
+            <div class="w-100">
+                <nz-skeleton [nzActive]="true" *ngIf="!parentCategory"> </nz-skeleton>
+            </div>
+            <div class="sub-catagories-sec">
+                <div class="top-category">
+                            <div [class.selected]="CurrentPage == category.class"  class="category-tab-row-main" *ngFor="let category of parentCategory">
+                                <div [routerLink]="['/shop/category', category.slug]"  class="category-tab-row" (mouseover)="getChild(category.id)"  (mouseenter)="showShopMegaMenu(category.class)" (mouseleave)="hideShopMegaMenu(category.class)" (click)="hideMegaMenu()">
+                                    <div class="category-icon {{category.class}}">
+                                        <img class="avatar"
+                                        [src]="replaceImage(category?.image?.url)" *ngIf="!(category?.image?.cloudinary_id); else cloudinoryImg">
+                                        <ng-template  #cloudinoryImg>
+                                            <cl-image loading="lazy" public-id="{{replaceImage(category?.image?.cloudinary_id)}}" secure="true">
+                                                <cl-transformation width="70" height="70" gravity="face" crop="thumb">
+                                                </cl-transformation>
+                                                <cl-transformation radius="100">
+                                                </cl-transformation>
+                                            </cl-image>
+                                        </ng-template>
+                                    </div>
+                                    <h4>
+                                        {{category.title}}
+                                    </h4>
+                                </div>
+                                <div class="category-tab-row-right-body">
+                                    <ul class="right-subcategory-list" *ngFor="let child of childCategories">
+                                        <li (click)="hideMegaMenu()">
+                                            <a href="" [routerLink]="['/shop/category', category.slug]" [queryParams]="{subCategory:child.slug}">{{child.title}}</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                 </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="mega-dropdown on-mobile-mega-menu hide-on-lg">
+    <a class="mega-dropdown-btn" (click)="showSideBar()"><i nz-icon nzType="menu" nzTheme="outline"></i></a>
+    <div class="mega-menu-body-sec" id="mega-menu-body">
+        <div class="megamenu-menu-body">
+            <a class="close-side-bar" (click)="hideSideBar()"><i nz-icon nzType="close-square"
+                    nzTheme="outline"></i></a>
+            <div class="sub-catagories-sec list-scroll">
+                <div class="sub-catagories-list">
+                    <ul nz-menu nzMode="inline" class="slide-list-item">
+                        <li nz-submenu nzTitle=" {{category.title}}" *ngFor="let category of parentCategory" >
+                            <div class="mobile-subcategory-list">
+                            <ul>
+                                <li nz-menu-item (click)="hideMegaMenu()" class="mega-menu-list-item"  *ngFor="let child of childCategories"> <a href="">{{child.title}}</a></li>
+                            </ul>
+                            </div>
+                        </li>
+                       
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

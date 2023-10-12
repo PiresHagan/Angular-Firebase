@@ -1,0 +1,178 @@
+.common-layout {
+    .page-container {
+        min-height: 100vh;
+        padding-left: $side-nav-width;
+        &.dasboard-container{
+            .container{
+                width:calc(100% - 50px);
+            }
+        }
+        @include transition(all 0.2s ease);
+
+        @include screen-laptop-only {
+            padding-left: $side-nav-width-laptop;
+        }
+
+        @include screen-tablet {
+            padding-left: 0px;
+        }
+
+        .main-content {
+            padding: 95px 0px 0px;
+            min-height: calc(100vh - #{$footer-height});
+            background: #f9fbfd;
+            @include screen-mobile {
+                padding: calc(#{$header-height} + #{$layout-content-gutter-sm}) $layout-content-gutter-sm
+                    $layout-content-gutter-sm $layout-content-gutter-sm;
+            }
+
+            .main-content-header {
+                font-family: "josefin_sansregular";
+                @include screen-mobile-above {
+                    display: flex;
+                    align-items: center;
+                
+                }
+                .breadcrumb-link{
+                    color: #000;
+                    margin-top: 20px;
+                    a{
+                        color:#000;
+                        font-family: "josefin_sansregular"; 
+                    }
+                }
+                
+
+                .page-title {
+                    margin-bottom: 10px;
+                    margin-right: 20px;
+                    color: $gray;
+                    font-size: 17px;
+                    line-height: 1;
+
+                    @include screen-mobile {
+                        margin-bottom: 20px;
+                        margin-right: 0px;
+                    }
+                }
+            }
+        }
+    }
+
+    .page-header {
+        background-color: $white;
+        padding: 10px 0px 0px 0px;
+
+        &.has-tab {
+            border-bottom: 0px;
+            margin-bottom: 0px;
+            padding-bottom: 1px;
+            margin: 0px;
+        }
+
+        @include screen-mobile {
+            margin-left: -$layout-content-gutter-sm;
+            margin-right: -$layout-content-gutter-sm;
+            margin-top: -$layout-content-gutter-sm;
+            margin-bottom: $layout-content-gutter-sm;
+        }
+    }
+
+    .page-header-tab {
+        
+        @include screen-mobile {
+            margin-left: -$layout-content-gutter-sm;
+            margin-right: -$layout-content-gutter-sm;
+        }
+
+        .ant-tabs-bar {
+            background-color: $white;
+            padding-left: $layout-content-gutter;
+            padding-right: $layout-content-gutter;
+            margin-bottom: $layout-content-gutter;
+
+            @include screen-mobile {
+                padding-left: $layout-content-gutter-sm;
+                padding-right: $layout-content-gutter-sm;
+                margin-bottom: $layout-content-gutter-sm;
+            }
+        }
+
+        .ant-tabs-content {
+            .ant-tabs-tabpane {
+                padding-left: $layout-content-gutter;
+                padding-right: $layout-content-gutter;
+
+                @include screen-mobile {
+                    padding-left: $layout-content-gutter-sm;
+                    padding-right: $layout-content-gutter-sm;
+                }
+            }
+        }
+    }
+
+    &.is-folded {
+        @include screen-tablet-above {
+            .page-container {
+                padding-left: 0;
+            }
+        }
+    }
+}
+@media screen and (max-width:580px){
+    .common-layout {
+        .page-container {
+            &.dasboard-container{
+                .container{
+                    width:100%;
+                }
+            }
+        }
+    }
+    .profile-article-header{
+        .logo-dark{
+            width: 150px;
+        }
+        .nav-wrap{
+            width: calc(100% - 150px);
+            padding-left: 10px;
+        }
+    }
+    .main-content-header {
+        .breadcrumb-link{
+            height: 40px;
+        }
+    }
+}
+
+@media screen and (min-width:581px) and (max-width:767px){
+    .common-layout {
+        &.article-layout{
+            .page-header{
+                margin: 0px;
+            }
+            .page-header-tab{
+                margin: 0px;
+            }
+            .page-container {
+                .main-content {
+                    .main-content-header{
+                        min-height: 90px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (min-width:992px) and (max-width:1450px){
+    .common-layout {
+            .page-container {
+                &.dasboard-container{
+                    padding-left: 280px;
+                }
+            }
+       
+    }
+}

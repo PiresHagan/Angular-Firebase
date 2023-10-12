@@ -1,0 +1,77 @@
+<section class="container">
+    <div class="agency-main">
+        <div class="main-agency-banner" style="background: url('assets/images/agency/agency-banner.png');">
+            <div class="agency-banner-content">
+                <h2>My Trending Stories Agency</h2>
+                <p>Boost your traffic and revenues with our digital marketing services</p>
+                <ul>
+                    <li>
+                        <img src="assets/images/agency/check.svg" alt="Check">
+                        High Authority Backlinks
+                    </li>
+                    <li>
+                        <img src="assets/images/agency/check.svg" alt="Check">
+                        Keyword Tracking
+                    </li>
+                    <li>
+                        <img src="assets/images/agency/check.svg" alt="Check">
+                        Organic SEO
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="agency-content">
+            <nz-tabset class="page-header-tab">
+                <nz-tab nzTitle="Standard">
+                    <div nz-row [nzGutter]="15" class="center-box-list">
+                        <div nz-col class="gutter-row"   nzXs="24" nzSm="12" nzMd="8" nzLg="8" *ngFor="let product of StandardProductData">
+                            <a [routerLink]='product.slug'>
+                            <div class="agency-box">
+                                <img [src]="product.featureImg" alt="">
+                                <div class="agency-box-content">
+                                        <h2>
+                                           {{product?.title}}
+                                        </h2>
+                                        <p>
+                                            {{product?.description}}
+                                        </p>
+                                    <div class="agency-fix-btn">
+                                        <button type="button" class="red-btn">
+                                            Next
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            </a>
+                        </div>
+                    </div>
+                </nz-tab>
+                <nz-tab nzTitle="Premium">
+                    <div nz-row [nzGutter]="15" class="center-box-list justify-content-center">
+                        <div nz-col class="gutter-row"   nzXs="24" nzSm="12" nzMd="8" nzLg="8" *ngFor="let product of PremiumProductData">
+                            <a routerLink='/app/agency/pr-digital-ads'>
+                            <div class="agency-box">
+                                <img [src]="product.featureImg" alt="">
+                                <div class="agency-box-content">
+                                        <h2>
+                                           {{product?.title}}
+                                        </h2>
+                                        <p>
+                                            {{product?.description}}
+                                        </p>
+                                    <div class="agency-fix-btn">
+                                        <button  type="button" class="red-btn">
+                                            Next
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        </div>
+                    </div>
+                </nz-tab>
+    
+            </nz-tabset>
+        </div>
+    </div>
+</section>

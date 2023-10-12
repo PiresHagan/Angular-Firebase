@@ -1,0 +1,97 @@
+
+.terms-sec{
+    .terms{
+        text-align: center;
+        p{
+            font-family: "open_sansregular";
+            font-size: 15px;
+            font-weight: normal;
+            color: #464444;
+            line-height: 24px;
+        }
+        h2{
+            color: #000;
+            padding: 30px 0px 10px 0px;
+            font-weight: bold;
+            font-size: 28px;
+            width: 100%;
+            text-align: center;
+            font-family: "josefin_sanssemibold";
+            position: relative;
+            margin-bottom: 10px;
+            &:after{
+                content: "";
+                position: absolute;
+                bottom: 0px;
+                width: 60px;
+                height: 1px;
+                background: #000;
+                margin: auto;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+        h3{
+            font-size: 22px;
+            font-family: "josefin_sansregular";
+            text-align: center;
+            position: relative;
+            padding-bottom: 11px;
+            margin-bottom: 30px;
+            margin-top: 40px;
+            &:after{
+                content: "";
+                position: absolute;
+                bottom: 0px;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 50px;
+                background: #000;
+                height: 2px;
+            }
+        }
+        
+        h4{
+            font-size: 20px;
+            font-family: "josefin_sansregular";
+            text-align: center;
+            position: relative;
+            margin-top: 40px;
+            color: #000;
+        }
+        ul{
+            margin: 0px;
+            padding: 0px;
+            text-align: left;
+            li{
+                position: relative;
+                padding-left: 20px;
+                list-style: none;
+                padding-bottom: 15px;
+                line-height: 26px;
+                &:after{
+                    content: "";
+                    position: absolute;
+                    width: 8px;
+                    height: 8px;
+                    border-radius: 30px;
+                    background: #000;
+                    left: 0px;
+                    top: 9px;
+                }
+            }
+        }
+    }
+}
+@media (min-width: 1200px){
+.container {
+    width: 1140px;
+    max-width: 100%;
+}
+}
+@media screen and (min-width:992px) and (max-width:1199px){
+    .terms-sec{
+      margin-top: 65px;
+    }
+  
+  }

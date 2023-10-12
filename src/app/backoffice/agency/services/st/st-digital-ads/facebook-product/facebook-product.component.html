@@ -1,0 +1,21 @@
+<div class="agency-box">
+    <div class="agency-black-header">
+        <h2>
+            <span>$</span>{{productItem?.price}}
+        </h2>
+    </div>
+    <div class="agency-box-content">
+        <div class="url-box">
+                  <label  class="label-txt">Add Url</label>
+                  <input  name="email" type="email" placeholder="Enter url" class="agency-input-box">
+                <div class="d-flex">
+                    <button (click)="handleAddToCart()" nz-button nzType="primary" class="circle-btn" nzPrimary>
+                        <i nz-icon nzType="shopping-cart" nzTheme="outline"></i>
+                    </button>
+                    <button routerLink="/app/agency/agency-checkout" nz-button nzType="primary" class="circle-btn" nzPrimary>
+                        <img src="assets/images/agency/right-arrow.svg" alt="">
+                    </button>
+                </div>
+        </div>
+    </div>
+</div> 

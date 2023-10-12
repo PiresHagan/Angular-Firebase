@@ -1,0 +1,73 @@
+<div class="container">
+    <div class="post-list-sec">
+        <div class="row">
+            <div class="col-lg-12">
+                <button routerLink="/app/social-sharing/create-post" type="button" class="custom-btn">Create Post</button>
+            </div>
+        </div>
+        <div class="is-cat-box-card-main">
+            <div class="cat-box-gallery">
+                <div class="row article-row"> 
+                  
+
+                    <div *ngFor="let post of posts" class="col-12 col-sm-6 col-lg-4 box_shadow post-div">
+                        <div class="item-card item-card-life-and-styles">
+                            <div class="item-card-content">
+                                <div class="item-card-title">
+                                    <h4 class="item-long-title">{{ post?.title }}</h4>
+                                    <div class="schdule-date">
+                                        <i nz-icon nzType="calendar" nzTheme="outline"></i>
+                                        {{ post?.scheduled_date | date: 'MMMM d, y h:mm a'}}
+                                    </div>
+                                </div>
+                                <div class="item-card-texte">
+                                    <p>{{ post?.post_text }}</p>
+                                    <div class="item-card-category cat-yellow">
+                                        <div class="is-avatar-dv" *ngFor="let network of post.networks">
+                                            <div *ngFor="let name of network.displayName">
+                                                <img *ngIf="network.name == 'facebook'" class="avatar" src="assets/images/company-logo/facebook.png" alt="" />
+                                                <span class="item-card-author">{{ name }}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="delete-btn">
+                                    <button type="button" class="is-read-more">
+                                        <a [href]="post?.story_url">{{ 'ViewStory' | translate }}</a><img src="assets/images/read-more-icon-black.png" alt="Read More" />
+                                    </button>
+                                    <div class="post-status">
+                                        <i class='post-published' nz-icon nzType="check-circle" nzTheme="outline" *ngIf="post?.isPublished"></i>
+                                        <i class='post-not-published' nz-icon nzType="close-circle" nzTheme="outline" *ngIf="!post?.isPublished"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
+
+
+<!-- <section class="border-box-sec">
+    <div class="container">
+        <div class="border-box">
+            <div class="banner-sec">
+                <a href="https://www.socialpilot.co/?fp_ref=mytrendingstories" target="_blank">
+                    <img src="assets/images/backoffice/social-sharing-banner.jpg" alt="Newsletter Banner" >
+                    <div class="banner-content">
+                        <h2 class="title-width">{{ "SocialSharingBanner" | translate }}</h2>
+                        <button type="button" class="banner-btn">{{ "SocialSharingBannerBtn" | translate }}</button>
+                    </div>
+                </a>
+            </div>
+            <div class="border-box-content">
+                <p>
+                    {{ "SocialSharingTxt" | translate}}
+                </p>
+            </div>
+        </div>
+    </div>
+</section> -->

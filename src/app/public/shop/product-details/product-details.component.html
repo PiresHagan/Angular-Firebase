@@ -1,0 +1,365 @@
+<section class="product-detail-section">
+  <div class="container">
+    <div class="back-btn">
+      <a (click)="goBack()">
+        <img src="assets/images/back-arrow.svg" alt="">
+      </a>
+    </div>
+    <div class="product-detail-main">
+      <div class="product-img">
+        <div class="sticky-box">
+          <nz-skeleton [nzActive]="true" *ngIf="!product"> </nz-skeleton>
+          <app-product-image *ngIf="product" [images]="allUrls"></app-product-image>
+            <div class="text-center">
+              <button class="blue-share-btn" type="button" (click)="showShareModel()">
+                <img src="assets/images/share.svg" alt="">
+                  Share
+              </button>
+            </div>
+          </div>
+      </div>
+      <div class="product-detail">
+        <div class="p-top-name">
+          <h2 class="p-name">{{ product?.name }}</h2>
+          <div class="d-flex">
+            <a [routerLink]="['/shop/cart']">
+              <div class="cart-btn">
+                <!-- <img src="assets/images/cart.svg" alt="cart image"> -->
+                <svg _ngcontent-vfy-c415="" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 450.391 450.391" xml:space="preserve" style="enable-background: new 0 0 450.391 450.391;"><g _ngcontent-vfy-c415=""><g _ngcontent-vfy-c415=""><g _ngcontent-vfy-c415=""><path _ngcontent-vfy-c415="" d="M143.673,350.322c-25.969,0-47.02,21.052-47.02,47.02c0,25.969,21.052,47.02,47.02,47.02
+                  c25.969,0,47.02-21.052,47.02-47.02C190.694,371.374,169.642,350.322,143.673,350.322z M143.673,423.465
+                  c-14.427,0-26.122-11.695-26.122-26.122c0-14.427,11.695-26.122,26.122-26.122c14.427,0,26.122,11.695,26.122,26.122
+                  C169.796,411.77,158.1,423.465,143.673,423.465z"></path><path _ngcontent-vfy-c415="" d="M342.204,350.322c-25.969,0-47.02,21.052-47.02,47.02c0,25.969,21.052,47.02,47.02,47.02s47.02-21.052,47.02-47.02
+                  C389.224,371.374,368.173,350.322,342.204,350.322z M342.204,423.465c-14.427,0-26.122-11.695-26.122-26.122
+                  c0-14.427,11.695-26.122,26.122-26.122s26.122,11.695,26.122,26.122C368.327,411.77,356.631,423.465,342.204,423.465z"></path><path _ngcontent-vfy-c415="" d="M448.261,76.037c-2.176-2.377-5.153-3.865-8.359-4.18L99.788,67.155L90.384,38.42
+                  C83.759,19.211,65.771,6.243,45.453,6.028H10.449C4.678,6.028,0,10.706,0,16.477s4.678,10.449,10.449,10.449h35.004
+                  c11.361,0.251,21.365,7.546,25.078,18.286l66.351,200.098l-5.224,12.016c-5.827,15.026-4.077,31.938,4.702,45.453
+                  c8.695,13.274,23.323,21.466,39.184,21.943h203.233c5.771,0,10.449-4.678,10.449-10.449c0-5.771-4.678-10.449-10.449-10.449
+                  H175.543c-8.957-0.224-17.202-4.936-21.943-12.539c-4.688-7.51-5.651-16.762-2.612-25.078l4.18-9.404l219.951-22.988
+                  c24.16-2.661,44.034-20.233,49.633-43.886l25.078-105.012C450.96,81.893,450.36,78.492,448.261,76.037z M404.376,185.228
+                  c-3.392,15.226-16.319,26.457-31.869,27.69l-217.339,22.465L106.58,88.053l320.261,4.702L404.376,185.228z"></path></g></g></g><g _ngcontent-vfy-c415=""></g><g _ngcontent-vfy-c415=""></g><g _ngcontent-vfy-c415=""></g><g _ngcontent-vfy-c415=""></g><g _ngcontent-vfy-c415=""></g><g _ngcontent-vfy-c415=""></g><g _ngcontent-vfy-c415=""></g><g _ngcontent-vfy-c415=""></g><g _ngcontent-vfy-c415=""></g><g _ngcontent-vfy-c415=""></g><g _ngcontent-vfy-c415=""></g><g _ngcontent-vfy-c415=""></g><g _ngcontent-vfy-c415=""></g><g _ngcontent-vfy-c415=""></g><g _ngcontent-vfy-c415=""></g></svg>
+                <span>{{ cartService.getLocalCartProducts().length }}</span>
+              </div>
+            </a>
+            <button class="blue-share-btn btn-transparent ml-2"  (click)="showShareModel()">
+              <img src="assets/images/share-blue.svg" alt="">
+              Share
+            </button>
+            <div id="productShareDiv" class="productShare modal-layout-main">
+              <div class="shareModalContent">
+                <div class="share-model-header">
+                  <h4>Share</h4>
+                  <div (click)="hideShareModel()">
+                    <img src="assets/images/close.svg" alt="">
+                  </div>
+                </div>
+                <div class="share-sec text-center">
+                  <div class="addthis_inline_share_toolbox">
+                    <div class="slider"
+                    style="
+                      display: flex;
+                      flex-wrap: wrap;
+                      gap: 10px;
+                      padding-left: 20px;
+                      padding-right: 20px;
+                      "
+                    >
+                      <div class="card">
+                        <div class="image">
+                          <img src="assets/images/whatsapp.png" alt="" style="height: 50px; width: 50px;">
+                        </div>
+                        <div class="name">
+                          <h5>WhatsApp</h5>
+                        </div>
+                      </div>
+                      <div class="card">
+                        <div class="image">
+                          <img src="assets/images/twitter.png" alt="" style="height: 50px; width: 50px;">
+                        </div>
+                        <div class="name">
+                          <h5>Twitter</h5>
+                        </div>
+                      </div>
+                      <div class="card">
+                        <div class="image">
+                          <img src="assets/images/fb.png" alt="" style="height: 50px; width: 50px;">
+                        </div>
+                        <div class="name">
+                          <h5>Facebook</h5>
+                        </div>
+                      </div>
+                      <div class="card">
+                        <div class="image">
+                          <img src="assets/images/social/kakaotalk.png" alt="" style="height: 50px; width: 50px;">
+                        </div>
+                        <div class="name">
+                          <h5>KakaoTalk</h5>
+                        </div>
+                      </div>
+                      <div class="card">
+                        <div class="image">
+                          <img src="assets/images/social/instagram.png" alt="" style="height: 50px; width: 50px;">
+                        </div>
+                        <div class="name">
+                          <h5>Instagram</h5>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="copy" style="display: flex; justify-content: space-between; margin: 20px; border: 1px solid #b1b1b1; border-radius: 5px; padding: 5px;">
+                      <div>
+                        <p class="links"
+                        #textToCopy
+                        style="margin-bottom: 0px;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        width: 315px;"
+                        >{{activeUrl}}</p>
+                      </div>
+                      <div class="button"
+                        style="padding-right: 5px;"
+                      >
+                        <button
+                        style="border: none;
+                        background: #2753d6;
+                        color: #ffffff;
+                        padding: 5px 10px;
+                        border-radius: 5px;"
+                        (click)="copyToClipboard()"
+                        >Copy</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="div-description" innerHTML='{{ product?.description }}'></div>
+        <div class="price">
+          {{ (product?.discountedPrice ? product?.discountedPrice : product?.salePrice) | currency
+          :'USD':'symbol':'1.0-2' }}
+          <span class="discount" *ngIf="product?.discountedPrice">{{ product?.salePrice | currency
+            :'USD':'symbol':'1.0-2' }}</span>
+        </div>
+        <ul *ngIf="product?.stats?.rating" class="rating-list">
+          <app-product-star-rating [rating]="product?.stats?.rating" class="nz-rating-sec"></app-product-star-rating>
+          <li class="rating-value">{{ product?.stats?.rating | number :'1.0-1' }}</li>
+        </ul>
+        <div class="p-buy-btn" *ngIf="product?.status == inStock && !isStoreInactive">
+          <button nz-button type="button" class="b-btn s-btn" [nzLoading]="isAdding" (click)="addToCart()">Add to Cart</button>
+          <button nz-button type="button" class="b-btn" (click)="buyProduct()">Buy Now</button>
+        </div>
+        <div class="p-buy-btn" *ngIf="product?.status !== inStock || isStoreInactive">
+          <button nz-button type="button" class="b-btn s-btn" disabled>Coming Soon</button>
+        </div>
+
+
+        <nz-tabset class="product-detail-tab">
+          <nz-tab nzTitle="Review">
+            <div class="p-rating-sec">
+              <div class="overall-rating">
+                <div *ngIf="product?.stats?.rating" class="p-rating">{{ product?.stats?.rating | number :'1.0-1' }}</div>
+                <div *ngIf="product?.stats?.rating" class="p-rating-list">
+                  <ul class="rating-list">
+                    <app-product-star-rating [rating]="product?.stats?.rating"></app-product-star-rating>
+                    <li>{{product?.stats?.rating.length}}</li>
+                  </ul>
+                </div>
+                <!-- <div class="p-buy-btn">
+                  <button type="button" class="b-btn s-btn" (click)="addToCart()">Review this store</button>
+                </div> -->
+                <div *ngIf="!(product?.stats?.rating)" class="no-review">
+                  No reviews available
+                </div>
+              </div>
+              <nz-skeleton [nzActive]="true" *ngIf="!productReviews"> </nz-skeleton>
+              <div class="m-t-20" *ngIf="productReviews">
+                <div class="user-rating-sec" *ngFor="let review of productReviews">
+                  <div class="rating-left">
+                   <div class="d-flex">
+                    <div class="p-user-img mr-2"><img [src]="review?.user?.avatar?.url" [alt]="review?.user?.avatar?.alt" /></div>
+                    <div class="flex-fill">
+                      <div class="p-user-name">
+                        {{ review?.user?.fullname}}
+                      </div>
+                      <div class="author-date">
+                        <app-product-star-rating [rating]="review.rating"></app-product-star-rating>
+                        <span>{{ review?.created_at | date: 'medium' }}</span>
+                      </div>
+                      <div class="product-comment-detail">
+                        <h3>{{ review?.title }}</h3>
+                        <p>{{ review?.remark }}</p>
+                      </div>
+                    </div>
+                   </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nz-tab>
+          <nz-tab nzTitle="Similar Product">
+            <div class="product-sec">
+              <div class="container">
+                <nz-skeleton [nzActive]="true" *ngIf="!similarProducts"> </nz-skeleton>
+                <div *ngIf="!similarProducts?.length" class="no-review text-center">
+                  No similar products found
+                </div>
+                <div class="product-list">
+                  <div [routerLink]="['/shop/products',product.slug]" class="product"
+                    *ngFor="let product of similarProducts">
+                    <shop-product-card [product]="product"></shop-product-card>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nz-tab>
+          <nz-tab nzTitle="Stories">
+            <div class="product-sec">
+              <div class="container">
+                      <nz-skeleton [nzActive]="true" *ngIf="!relatedProductData"> </nz-skeleton>
+                      <div *ngIf="relatedProductData && !relatedProductData?.length" class="no-review text-center">
+                        No related story found
+                      </div>
+                      <div class="is-cat-box-card-main">
+                          <div class="cat-box bg-white">
+                              <div class="cat-box-gallery">
+                                  <div class="row article-row">
+                                      <div class="col-sm-15 box_shadow"  *ngFor="let article of relatedProductData" [ngClass]="article.category.slug">
+                                      <div class="item-card item-card-life-and-styles">
+                                      <a [routerLink]="['/',article.author.slug,article.slug]">
+                                          <div class="item-card-image">
+                                              <img [src]="replaceImage(article.image.url)" [alt]="article.image.alt"  *ngIf="!(article.image.cloudinary_id); else CateCloudinoryImg">
+                                              <ng-template #CateCloudinoryImg>
+                                                  <div class="hide-avatar">
+                                                      <app-cloudinary-img [article]="article" ></app-cloudinary-img>
+                                                  </div>
+                                              </ng-template>
+                                              <h3 class="is-category-title">{{article.category.title}}</h3>
+                                              <div class="article-image-icon" *ngIf="article.type==='audio'">
+                                                  <i class="fas fa-play"></i>
+                                              </div>
+                                              <div class="article-image-icon" *ngIf="article.type==='video'">
+                                                  <i class="fas fa-play"></i>
+                                              </div>
+                                              <div class="article-image-icon" *ngIf="!(article.type==='audio' || article.type==='video')">
+                                                  <i class="fas fa-angle-right"></i>
+                                              </div>
+                                              <div class="comment-right">
+                                                  <div class="article-comment-info">
+                                                  <div class="comment-section">
+                                                      <ul>
+                                                          <li *ngIf="article.view_count">
+                                      <a href="#">
+                                      <i class="fas fa-eye"></i>
+                                      {{article.view_count}}
+                                      </a>
+                                      </li>
+                                      <li *ngIf="article.likes_count">
+                                      <a href="#">
+                                      <i class="fas fa-heart"></i>
+                                      {{article.likes_count}}
+                                      </a>
+                                      </li>
+                                      <li *ngIf="article.comments_count">
+                                      <a href="#">
+                                      <i class="fa fa-comment"></i>
+                                      {{article.comments_count}}
+                                      </a>
+                                      </li>
+                                      </ul>
+                                      </div>
+                                      <div class="clearfix"></div>
+                                      </div>
+                                      </div>
+                                      </div>
+                                      <div class="item-card-content">
+                                          <div class="item-card-category cat-yellow">
+                                              <div class="is-avatar-dv">
+                                                  <div class="overlay-icon">
+                                                  <img class="avatar" [src]="replaceImage(article.author.avatar?.url)"
+                                                  [alt]="article.author.avatar?.alt"
+                                                  onerror="this.src='assets/images/default-avatar.png'" *ngIf="!(article.author.avatar?.cloudinary_id); else CateAvatarCloudinoryImg">
+                                                      <ng-template #CateAvatarCloudinoryImg>
+                                                          <div class="hide-feature-img">
+                                                              <app-cloudinary-img [article]="article" ></app-cloudinary-img>
+                                                          </div>
+                                                      </ng-template>
+                                                  <app-article-avatar [article]="article"></app-article-avatar>
+                                                  </div>
+                                                  <span class="item-card-author">{{article.author.fullname}}</span>
+                                              </div>
+                                          </div>
+                                          <div class="item-card-title">
+                                              <h4 class="item-long-title">{{article.title}}</h4>
+                                          </div>
+                                          <div class="item-card-texte">
+                                              <p>{{article.excerpt}}</p>
+                                              <div class="category-article-readmore">
+                                                  <div  *ngIf="article.type==='audio'">
+                                                  <button type="button" class="is-read-more">{{'ListenNow' | translate }} <img
+                                                      src="assets/images/read-more-icon-black.png" alt="Read More" /></button>
+                                                  </div>
+                                                  <div  *ngIf="article.type==='video'">
+                                                  <button type="button" class="is-read-more">{{'WatchNow' | translate }}<img
+                                                      src="assets/images/read-more-icon-black.png" alt="Read More" /></button>
+                                                  </div>
+                                                  <div  *ngIf="!(article.type==='audio' || article.type==='video')">
+                                                  <button type="button" class="is-read-more">{{'readMore' | translate }} <img
+                                                      src="assets/images/read-more-icon-black.png" alt="Read More" /></button>
+                                                  </div>
+                                                  <div class="article-icon-main">
+                                                  <div class="article-icon" *ngIf="article.type==='audio'">
+                                                      <i class="fas fa-volume-down"></i>
+                                                  </div>
+                                                  <div class="article-icon" *ngIf="article.type==='video'">
+                                                      <i class="fas fa-video"></i>
+                                                  </div>
+                                                  <div class="article-icon" *ngIf="!(article.type==='audio' || article.type==='video')">
+                                                      <i class="far fa-file-alt"></i>
+                                                  </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      </a>
+                                      </div>
+                                  </div>
+                                  <div class="clearfix"></div>
+                              </div>
+                          </div>
+                          </div>
+                      </div>
+              </div>
+            </div>
+          </nz-tab>
+          <nz-tab nzTitle="Store Info" *ngIf="storeInfoData">
+            <div class="store-info">
+              <div class="store-img"><img [src]="storeInfoData?.image?.url" [alt]="storeInfoData?.image?.alt"></div>
+              <div class="store-info-right">
+                <h2>{{storeInfoData?.name}}</h2>
+              <div class="mb-3">
+                <a [routerLink]="['/shop', storeInfoData.slug]">
+                  <button type="button" class="btn-black">{{'visitStore'|translate}}</button>
+                </a>
+              </div>
+
+              </div>
+             <div>
+
+             </div>
+            </div>
+          </nz-tab>
+        </nz-tabset>
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+
+
+
+</section>

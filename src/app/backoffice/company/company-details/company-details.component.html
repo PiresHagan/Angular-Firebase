@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="profile-setting-main">
+        <div class="page-header has-tab">
+            <h2 class="font-weight-normal"> {{ 'CompanyInfo' | translate }}</h2>
+        </div>
+        <nz-tabset class="page-header-tab">
+            <nz-tab nzTitle="{{'CompanyDetails'| translate}}">
+                <app-add-company class="m-10"></app-add-company>
+            </nz-tab>
+            <nz-tab *ngIf="companyId" nzTitle="{{'CompanyFollowers'| translate}}">
+                <app-company-followers></app-company-followers>
+            </nz-tab>
+            <nz-tab *ngIf="companyId" nzTitle="{{'CompanyLeads'| translate}}">
+                <app-company-leads></app-company-leads>
+            </nz-tab>
+            <nz-tab *ngIf="companyId" nzTitle="{{'CompanyArticle'| translate}}">
+                <app-company-article></app-company-article>
+            </nz-tab>
+            <nz-tab *ngIf="companyId" nzTitle="{{'CompanyFundraisers'| translate}}">
+                <app-company-fundraisers></app-company-fundraisers>
+            </nz-tab>
+            <nz-tab *ngIf="companyId" nzTitle="{{'CompanySubscription'| translate}}">
+                <app-company-subscription></app-company-subscription>
+            </nz-tab>
+        </nz-tabset>
+
+    </div>
+</div>

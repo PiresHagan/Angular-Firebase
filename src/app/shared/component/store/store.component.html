@@ -1,0 +1,31 @@
+<!-- <div class="single-product store">
+    <div class="product-item">
+        <div class="product-img">
+            <img [src]="store?.image?.url" [alt]="store?.image?.alt" />
+        </div>
+        <div class="product-body">
+            <h2>{{ store?.name }}</h2>
+            <a [routerLink]="['/shop', store?.slug]">
+                <button type="button" class="buy-btn">Visit Store</button>
+            </a>
+        </div>
+    </div>
+</div> -->
+
+
+
+<img  [src]="store?.image?.url" *ngIf="!(store?.image?.cloudinary_id); else cloudinoryImg" [alt]="store?.image?.alt" >
+    <ng-template  #cloudinoryImg>
+        <cl-image loading="lazy" public-id="{{store?.image?.cloudinary_id}}" secure="true">
+            <cl-transformation width="200" height="200" gravity="face" crop="thumb">
+            </cl-transformation>
+            <cl-transformation radius="100">
+            </cl-transformation>
+        </cl-image>
+    </ng-template>
+    <div class="img-overlay-txt">
+        <h2>{{ store?.name }}</h2>
+        <a [routerLink]="['/shop', store?.slug]">
+            <button type="button" class="btn-black">{{'visitStore'|translate}}</button>
+        </a>
+    </div> 

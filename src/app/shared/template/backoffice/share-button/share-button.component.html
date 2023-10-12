@@ -1,0 +1,48 @@
+<button class="m-r-10 share-btn" nz-button nzType="default" (click)="openShareModal()">
+  {{'share' | translate}}
+</button>
+
+<div class="invite-modal-sec">
+  <nz-modal [(nzVisible)]="isActiveModal" nzTitle="Invite" (nzOnCancel)="closeShareModal()" (nzOnOk)="handleOk()">
+    <div>
+      <div *ngIf="userDetails" class="share-popup-body">
+        <h2>Invite with your family and Friends</h2>
+        <div class="media-badge-group">
+          <a href="/{{userDetails.slug}}" class="social-badge">
+            <span class="logo-icon">M</span>
+            <div>
+              Follow us on
+              <b>my trending stories</b>
+            </div>
+          </a>
+          <a href="/{{userDetails.slug}}" class="social-badge">
+            <span class="logo-icon">M</span>
+            <div>
+              Share us on
+              <b>my trending stories</b>
+            </div>
+          </a>
+          <a href="/{{userDetails.slug}}" class="social-badge">
+            <span class="logo-icon">M</span>
+            <div>
+              Share profile on
+              <b>my trending stories</b>
+            </div>
+          </a>
+        </div>
+        <nz-alert class="success-box" nzType="success" nzMessage="Link copied" nzCloseable *ngIf="isActiveSuccessBox">
+        </nz-alert>
+        <div class="badge-txt-box">
+          <input nz-input type="text" value="{{baseUrl}}/{{userDetails.slug}}" class="url-txt-box" readonly="readonly"
+            #userinput>
+          <button (click)="copyInputMessage(userinput)" type="button" class="share-txt-btn">Copy Link</button>
+        </div>
+        <div class="media-Icon">
+          <share-buttons theme="moon"
+            [include]="['facebook','twitter','pinterest','linkedin','messenger','email','whatsapp','telegram']"
+            [show]="8" url="{{baseUrl}}/{{userDetails.slug}}" [autoSetMeta]="false"></share-buttons>
+        </div>
+      </div>
+    </div>
+  </nz-modal>
+</div>

@@ -1,0 +1,69 @@
+<div class="account-div" [ngStyle]="{'color': social.facebook.color}">
+  <img [src]='social.facebook.logo'>
+  Facebook
+  <button [ngStyle]="{ 'color': social.facebook.color, 'border': '1px solid', 'border-color': social.facebook.color}"
+    *ngIf="!socialSharingService?.socialPlatformsStatus?.facebook" class="m-l-30" nz-button nzSize="small" nzType="default" [nzLoading]="fbloading"
+    (click)="linkFacebook()">
+    {{ "Link" | translate }}
+  </button>
+  <button [ngStyle]="{ 'color': social.facebook.color, 'border': '1px solid', 'border-color': social.facebook.color}"
+    *ngIf="socialSharingService?.socialPlatformsStatus?.facebook" class="m-l-30" nz-button nzSize="small" nzType="default" [nzLoading]="fbloading"
+    (click)="unlinkFacebook()">
+    {{ "Unlink" | translate }}
+  </button>
+</div>
+
+<div class="account-div">
+  <img [src]="social.linkedin.logo">
+  Linkedin
+
+  <button [ngStyle]="{ 'color': social.twitter.color, 'border': '1px solid', 'border-color': social.twitter.color}"
+    class="m-l-30" nz-button nzSize="small" nzType="default" [nzLoading]="linkLoading" (click)="linkLinkdin()"
+    *ngIf="userDetails && (!userDetails.linkdin_details ||   !userDetails.linkdin_details.profile_data)">
+    {{ "Link" | translate }}
+  </button>
+  <button [ngStyle]="{ 'color': social.twitter.color, 'border': '1px solid', 'border-color': social.twitter.color}"
+    class="m-l-30" nz-button nzSize="small" nzType="default" [nzLoading]="linkLoading" (click)="linkLinkdin()"
+    *ngIf="userDetails && userDetails.linkdin_details  && userDetails.linkdin_details.profile_data">
+    {{ "Unlink" | translate }}
+  </button>
+  <span *ngIf="userDetails && userDetails.linkdin_details  && userDetails.linkdin_details.profile_data"> Linked
+    with
+    {{userDetails.linkdin_details.profile_data.localizedFirstName+" "+userDetails.linkdin_details.profile_data.localizedLastName }}'s
+    Linkedin account.</span>
+</div>
+
+<!-- <div class="account-div" [ngStyle]="{'color': social.twitter.color}">
+  <img [src]='social.twitter.logo'>
+  Twitter
+  <button [ngStyle]="{ 'color': social.twitter.color, 'border': '1px solid', 'border-color': social.twitter.color}"
+    *ngIf="!socialSharingService?.socialPlatformsStatus?.facebook" class="m-l-30" nz-button nzSize="small" nzType="default" [nzLoading]="fbloading"
+    (click)="linkTwitter()">
+    {{ "Link" | translate }}
+  </button>
+  <button [ngStyle]="{ 'color': social.twitter.color, 'border': '1px solid', 'border-color': social.twitter.color}"
+    *ngIf="socialSharingService?.socialPlatformsStatus?.twitter" class="m-l-30" nz-button nzSize="small" nzType="default" [nzLoading]="fbloading"
+    (click)="unlinkTwitter()">
+    {{ "Unlink" | translate }}
+  </button>
+</div> -->
+
+<!-- <nz-table *ngIf="fbAccountLinkStatus" #nzTable [nzData]="userFirendsList" nzTableLayout="fixed"
+  class="friends-list-tbl">
+  <thead>
+    <tr>
+      <th>{{'importName' | translate}}</th>
+      <th>{{'importEmail' | translate}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of nzTable.data">
+      <td>{{ data.name}}</td>
+      <td>{{ data.email}}</td>
+    </tr>
+  </tbody>
+</nz-table> -->
+
+<div class="share-sec text-center">
+  <div class="addthis_inline_share_toolbox"></div>
+</div>

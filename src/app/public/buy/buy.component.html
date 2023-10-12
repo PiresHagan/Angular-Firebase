@@ -1,0 +1,36 @@
+<section class="buy-sec">
+    <div class="container">
+        <div class="page-title">
+           {{'MonthlyPackageTitle' | translate}}
+        </div>
+        <div class="buy-main">
+            <div class="buy-header-img">
+                <img src="assets/images/buy.jpg" />
+                <div class="monthly-price">{{'MonthlyPrice' | translate}}</div>
+            </div>
+            <div class="buy-content">
+                <div class="price">$1000</div>
+                <div class="buy-btn-main">
+                    <button class="buy-btn" nz-button nzType="primary" (click)="checkLogin()">{{'monthlyBuyIt' | translate}}</button>
+                    <nz-modal
+                        [(nzVisible)]="isVisible"
+                        nzTitle="My Trending Stories"
+                        (nzOnCancel)="handleCancel()"
+                        (nzOnOk)="handleOk()"
+                        [nzOkLoading]="isOkLoading"
+                        >
+                        <div class="popup-content">
+                            <div>
+                                <a [routerLink]="['/']" class="bg-logo">
+                                    <img src="assets/images/logo/logo-circle.png" alt="My Trending Stories">
+                                </a>
+                            </div>
+                            <p class="text-black">{{'Please' | translate}}, <a routerLink="/auth/login">{{'logInTitle' | translate}}</a> {{'or' | translate}} <a routerLink="/auth/signup">{{'signUp' | translate}}</a> {{'buyingSpotText' | translate}}.</p>
+                           
+                        </div>
+                        </nz-modal>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

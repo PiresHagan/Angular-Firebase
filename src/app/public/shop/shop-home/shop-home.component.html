@@ -1,0 +1,281 @@
+<section>
+    <app-shop-header></app-shop-header>
+</section>
+<section class="offer-banner" style="background-image: url(assets/images/shopping/shop-banner.jpg);">
+    <div class="container">
+        <div class="banner-content">
+            <div>
+                <h2>
+                    {{ 'ecommerceHomeBannerText' | translate}}
+                </h2>
+                <!-- <h4>{{items.subHeading}}</h4>
+                <p>{{items.content}}</p> -->
+                
+            </div>
+        </div>
+    </div>
+</section>
+<section class="deal-of-day top-store">
+    <div class="container">
+        <div class="product-title">
+            <h2>{{'exploretopstories'|translate}}</h2>
+            <a href="" class="see-all" [routerLink]="'stores'">See All</a>
+        </div>
+        <div class="deal-of-day-box">
+            <nz-skeleton [nzActive]="true" *ngIf="!stores"> </nz-skeleton>
+            <div class="deal-of-day-item" *ngFor="let store of stores | slice:0:5">
+                <app-store [store]="store"></app-store>
+             </div>
+
+        </div>
+    </div>
+</section>
+<section class="ecommerce-category">
+    <div class="container">
+        <div class="product-title">
+            <h2>{{'categories'|translate}}</h2>
+        </div>
+        <div class="category-box">
+            <div class="category-item" *ngFor="let category of parentCategory"> 
+                <a href="" [routerLink]="['/shop/category', category.slug]">
+                    <div class="category-icon {{category.class}}">
+                        <img class="avatar"
+                            [src]="replaceImage(category?.image?.url)" *ngIf="!(category?.image?.cloudinary_id); else cloudinoryImg">
+                            <ng-template  #cloudinoryImg>
+                                <cl-image loading="lazy" public-id="{{replaceImage(category?.image?.cloudinary_id)}}" secure="true">
+                                    <cl-transformation width="70" height="70" gravity="face" crop="thumb">
+                                    </cl-transformation>
+                                    <cl-transformation radius="100">
+                                    </cl-transformation>
+                                </cl-image>
+                            </ng-template>
+                    </div>
+                    <h4>{{category.title}}</h4>
+                
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- <section class="deal-of-day">
+    <div class="container">
+        <div class="product-title">
+            <h2>{{'dealoftheday'|translate}}</h2>
+        </div>
+        <div class="deal-of-day-box">
+            <div class="deal-of-day-item">
+                <img src="assets/images/shopping/offer-1.png" alt="">
+                <div class="img-overlay-txt">
+                  <div class="offer-txt">
+                      <div class="upto">
+                          Up To
+                          <span class="offer-line"></span>
+                      </div>
+                      <div class="offer-discount">
+                          20
+                          <span>
+                              % <br>
+                            OFF
+                          </span>
+                      </div>
+                  </div>
+                  <h2>ON MEN CLOTHES</h2>
+                  <button class="btn-black btn-white">Shop Now</button>
+                </div>  
+
+            </div>
+
+            <div class="deal-of-day-item">
+                <img src="assets/images/shopping/offer-2.png" alt="">
+                <div class="img-overlay-txt">
+                  <div class="offer-txt">
+                      <div class="upto">
+                          Up To
+                          <span class="offer-line"></span>
+                      </div>
+                      <div class="offer-discount">
+                          30
+                          <span>
+                              % <br>
+                            OFF
+                          </span>
+                      </div>
+                  </div>
+                  <h2>ON WOMEN CLOTHES</h2>
+                  <button class="btn-black btn-white">Shop Now</button>
+                </div>  
+
+            </div>
+
+
+            <div class="deal-of-day-item">
+                <img src="assets/images/shopping/offer-3.png" alt="">
+                <div class="img-overlay-txt">
+                  <div class="offer-txt">
+                      <div class="upto">
+                          Up To
+                          <span class="offer-line"></span>
+                      </div>
+                      <div class="offer-discount">
+                          60
+                          <span>
+                              % <br>
+                            OFF
+                          </span>
+                      </div>
+                  </div>
+                  <h2>ON BABY CLOTHES</h2>
+                  <button class="btn-black btn-white">Shop Now</button>
+                </div>  
+
+            </div>
+        </div>
+    </div>
+</section> -->
+
+<section class="product-sec">
+    <div class="container">
+        <div class="product-title">
+            <h2>POPULAR PRODUCTS</h2>
+        </div>
+        <div class="product-list">
+            <nz-skeleton [nzActive]="true" *ngIf="!mostViewedProducts"> </nz-skeleton>
+            <div class="product" *ngFor="let product of mostViewedProducts">
+               <shop-product-card [product]="product"></shop-product-card>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="product-sec">
+    <div class="container">
+        <div class="product-title">
+            <h2>NEW PRODUCTS</h2>
+        </div>
+        <div class="product-list">
+            <nz-skeleton [nzActive]="true" *ngIf="!latestProducts"> </nz-skeleton>
+            <div class="product" *ngFor="let product of latestProducts">
+                <shop-product-card [product]="product"></shop-product-card>
+             </div>
+        </div>
+    </div>
+</section>
+ <section class="product-sec">
+    <div class="container">
+        <div class="product-title">
+            <h2>STORIES RELATED TO PRODUCTS</h2>
+        </div>
+        <div class="product-list">
+            <nz-skeleton [nzActive]="true" *ngIf="!articlesRelatedProduct"> </nz-skeleton>
+           
+            <div class="is-cat-box-card-main">
+                <div class="cat-box bg-white">
+                    <div class="cat-box-gallery">
+                        <div class="row article-row">
+                            <div class="col-sm-15 box_shadow"  *ngFor="let article of articlesRelatedProduct" [ngClass]="article.category.slug">
+                            <div class="item-card item-card-life-and-styles">
+                            <a [routerLink]="['/',article.author.slug,article.slug]">
+                                <div class="item-card-image">
+                                    <img [src]="replaceImage(article.image.url)" [alt]="article.image.alt"  *ngIf="!(article.image.cloudinary_id); else CateCloudinoryImg">
+                                    <ng-template #CateCloudinoryImg>
+                                        <div class="hide-avatar">
+                                            <app-cloudinary-img [article]="article" ></app-cloudinary-img>
+                                        </div>
+                                    </ng-template>
+                                    <h3 class="is-category-title">{{article.category.title}}</h3>
+                                    <div class="article-image-icon" *ngIf="article.type==='audio'">
+                                        <i class="fas fa-play"></i>
+                                    </div>
+                                    <div class="article-image-icon" *ngIf="article.type==='video'">
+                                        <i class="fas fa-play"></i>
+                                    </div>
+                                    <div class="article-image-icon" *ngIf="!(article.type==='audio' || article.type==='video')">
+                                        <i class="fas fa-angle-right"></i>
+                                    </div>
+                                    <div class="comment-right">
+                                        <div class="article-comment-info">
+                                        <div class="comment-section">
+                                            <ul>
+                                                <li *ngIf="article.view_count">
+                            <a href="#">
+                            <i class="fas fa-eye"></i>
+                            {{article.view_count}}
+                            </a>
+                            </li>
+                            <li *ngIf="article.likes_count">
+                            <a href="#">
+                            <i class="fas fa-heart"></i>
+                            {{article.likes_count}}
+                            </a>
+                            </li>
+                            <li *ngIf="article.comments_count">
+                            <a href="#">
+                            <i class="fa fa-comment"></i>
+                            {{article.comments_count}}
+                            </a>
+                            </li>
+                            </ul>
+                            </div>
+                            <div class="clearfix"></div>
+                            </div>
+                            </div>
+                            </div>
+                            <div class="item-card-content">
+                                <div class="item-card-category cat-yellow">
+                                    <div class="is-avatar-dv">
+                                        <div class="overlay-icon">
+                                        <img class="avatar" [src]="replaceImage(article.author.avatar?.url)"
+                                        [alt]="article.author.avatar?.alt"
+                                        onerror="this.src='assets/images/default-avatar.png'" *ngIf="!(article.author.avatar?.cloudinary_id); else CateAvatarCloudinoryImg">
+                                            <ng-template #CateAvatarCloudinoryImg>
+                                                <div class="hide-feature-img">
+                                                    <app-cloudinary-img [article]="article" ></app-cloudinary-img>
+                                                </div>
+                                            </ng-template>
+                                        <app-article-avatar [article]="article"></app-article-avatar>
+                                        </div>
+                                        <span class="item-card-author">{{article.author.fullname}}</span>
+                                    </div>
+                                </div>
+                                <div class="item-card-title">
+                                    <h4 class="item-long-title">{{article.title}}</h4>
+                                </div>
+                                <div class="item-card-texte">
+                                    <p>{{article.excerpt}}</p>
+                                    <div class="category-article-readmore">
+                                        <div  *ngIf="article.type==='audio'">
+                                        <button type="button" class="is-read-more">{{'ListenNow' | translate }} <img
+                                            src="assets/images/read-more-icon-black.png" alt="Read More" /></button>
+                                        </div>
+                                        <div  *ngIf="article.type==='video'">
+                                        <button type="button" class="is-read-more">{{'WatchNow' | translate }}<img
+                                            src="assets/images/read-more-icon-black.png" alt="Read More" /></button>
+                                        </div>
+                                        <div  *ngIf="!(article.type==='audio' || article.type==='video')">
+                                        <button type="button" class="is-read-more">{{'readMore' | translate }} <img
+                                            src="assets/images/read-more-icon-black.png" alt="Read More" /></button>
+                                        </div>
+                                        <div class="article-icon-main">
+                                        <div class="article-icon" *ngIf="article.type==='audio'">
+                                            <i class="fas fa-volume-down"></i>
+                                        </div>
+                                        <div class="article-icon" *ngIf="article.type==='video'">
+                                            <i class="fas fa-video"></i>
+                                        </div>
+                                        <div class="article-icon" *ngIf="!(article.type==='audio' || article.type==='video')">
+                                            <i class="far fa-file-alt"></i>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </a>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> 

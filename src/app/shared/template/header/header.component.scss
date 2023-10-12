@@ -1,0 +1,250 @@
+.header{
+    box-shadow: 0px 0px 10px 8px rgba(0,0,0,.02);
+    .vertical-center{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    } 
+    .lang-dropdown{
+        width:55px;
+        select{
+            width: 100%;
+            border:1px solid #eee;
+            padding: 5px;
+        }
+    }
+
+.nav-right{
+    margin-right: 0px;
+    li{
+        a{
+            &:hover{
+                background-color: transparent;
+            }
+        }
+        
+        .is-login-link{
+            color: #000;
+            font-weight: 500;
+            font-size: 13px;
+        }
+        .is-sign-up-btn{
+            border-radius: 30px;
+            font-size: 14px;
+            outline: none;
+            ::ng-deep span{
+                margin-right: 5px;
+            }
+        }
+    }
+}
+.logo-col{
+    width:140px;
+    padding-right: 9px;
+    .logo{
+        .mobile-logo{
+            display: none;
+        }
+        .lg-logo{
+            display: block;
+        }
+    }
+}
+.menu-col{
+    flex:1;
+    padding-right: 9px;
+    padding-left: 9px;
+}
+.language-col{
+padding-right: 9px;
+}
+}
+
+.vertical-center{
+    .nav-wrap {
+        -webkit-box-pack: end;
+        justify-content: flex-end;
+    }
+}
+.is-search-icon{
+    a:focus{
+        background: transparent !important;
+    }
+}
+
+@media screen and (max-width:993px){
+    .hidden-on-xs{
+        display: none !important;
+    }
+    .header{
+        .menu-col{
+            order: 0;
+            flex:unset;
+            width:45px;
+            padding-right:0px;
+        }
+        .logo-col{
+            order: 1;
+            width: auto;
+            display: flex;
+            align-items: center;
+            padding-right:5px;
+            .logo{
+                width:110px;
+                height: auto;
+                background: transparent;
+                .xs-logo{
+                    display: block;
+                    max-width: 100%;
+                }
+                .lg-logo{
+                    display: none;
+                }
+            }
+        }
+        .language-col{
+            order: 2;
+            flex: 1;
+            .nav-wrap{
+                .nav-right{
+                    .is-search-icon{
+                        a{
+                            padding: 5px 10px 5px 5px;
+                        }
+                    }
+                }
+            }
+        }
+        .nav-wrap{
+            .nav-right{
+                li{
+                    .is-sign-up-btn{
+                        padding: 5px 10px;
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+        
+}
+}
+@media screen and (max-width:360px){
+    .header{
+        .language-col{
+            .nav-wrap{
+                .nav-right{
+                    .is-search-icon{
+                        a{
+                            padding: 5px 5px 5px 5px;
+                        }
+                    }
+                }
+            }
+        } 
+    }
+}
+@media screen and (max-width:993px){
+    .header{
+        border-bottom: 1px solid #f5f5f5;
+        top:-1px;
+        .border-xs{
+            border-bottom: 1px solid #eee;
+        .logo{ 
+            &.logo-dark{
+                display: flex !important;
+                text-align: center;
+                justify-content: center;
+                margin: auto;
+                max-width: 200px;
+            }
+        }
+    }
+}
+}
+
+@media screen and (max-width:580px){
+    .header{
+        .language-col{
+            padding-left: 0px;
+            ::ng-deep .ant-select-show-arrow{
+                .ant-select-selector{
+                    padding: 0 3px;
+                    font-size: 10px;
+                    
+                }
+            }
+            ::ng-deep .ant-select-item-option-content{
+                font-size: 10px;
+            }
+            li{
+                .is-login-link{
+                    font-size: 11px;
+                    padding: 5px;
+                }
+            }
+            li{
+                .is-sign-up-btn{
+                    padding: 5px 8px;
+                    font-size: 12px !important;
+                }
+            }
+            
+        }
+
+    }
+}
+
+@media screen and (min-width:993px) and (max-width:1199px){
+    .header{
+        height: 130px;
+        top:-1px;
+        .border-xs{
+            border-bottom: 1px solid #eee;
+    }
+    .logo-col{
+        order:0;
+        .logo{
+            margin: auto;
+        }
+    }
+    .menu-col{
+        order:2;
+        width:100%;
+        ::ng-deep .ant-layout-sider-children{
+            margin:auto;
+        } 
+    }
+    .language-col{
+        order: 1;
+        flex:1;
+        padding-left: 0px;
+        ::ng-deep .ant-select-show-arrow{
+            .ant-select-selector{
+                padding: 0 3px;
+                font-size: 12px;
+                
+            }
+        }
+        ::ng-deep .ant-select-item-option-content{
+            font-size: 10px;
+        }
+        li{
+            .is-login-link{
+                font-size: 14px;
+                padding: 5px;
+            }
+        }
+        li{
+            .is-sign-up-btn{
+                padding: 5px 8px;
+                font-size: 14px !important;
+            }
+        }
+      
+    }
+  }
+  }
+
+ 
+
+

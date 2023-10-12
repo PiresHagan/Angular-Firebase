@@ -1,0 +1,130 @@
+<div class="container">
+  <nz-skeleton *ngIf="!orderDetails"></nz-skeleton>
+
+
+  <nz-card *ngIf="orderDetails" class="order-details">
+    <div class="row">
+      <div class="top-back-btn">
+        <a nz-button nzType="primary" class="p-t-10 m-2" (click)="goBack()" [nzLoading]="markPaidStatus">
+          <i nz-icon nzType="left" nzTheme="outline"></i>
+          <span>{{ 'Back' | translate}}</span>
+        </a>
+      </div>
+    </div>
+    <div id="invoice" class="invoice-content">
+      <div class="row">
+        <div class="customer-detail">
+          <img class="img-fluid" [src]="orderDetails?.customer?.avatar?.url" alt="">
+          <address class="customer-name">
+            <span class="name__">{{orderDetails?.customer?.fullname}}</span><br>
+            <span> {{orderDetails?.customer?.email}}</span>
+            <!-- <span>9498 Harvard Street</span><br>
+              <span>Fairfield, Chicago Town 06824</span><br>
+              <abbr class="text-dark" title="Phone">Phone:</abbr>
+              <span>(123) 456-7890</span> -->
+          </address>
+        </div>
+      </div>
+      <div class="invoice-detail-sec">
+        <!--<div class="col-sm-9">
+           <h3 class="p-l-10 m-t-10">{{ 'InvoiceTo' | translate}}</h3>
+            <address class="p-l-10 m-t-10">
+              <span class="font-weight-semibold text-dark">Genting Holdings.</span><br>
+              <span>8626 Maiden Dr. </span><br>
+              <span>Niagara Falls, New York 14304</span>
+            </address> 
+        </div>-->
+        <div class="col-sm-6">
+          <h3>{{ 'ShippingAddress' | translate}}</h3>
+          <address class="address-detail">
+            <span class="font-weight-semibold text-dark">{{orderDetails.shippingInfo.name}}</span><br>
+            <span>{{orderDetails.shippingInfo.address}}</span><br>
+            <span>{{orderDetails.shippingInfo.city}}, <br> {{orderDetails.shippingInfo.state}}
+              {{orderDetails.shippingInfo.postal_code}}</span><br>
+            <span>M: {{orderDetails.shippingInfo.mobile_number}}</span><br>
+            <span *ngIf="orderDetails.shippingInfo.alternate_mobile_number">M:
+              {{orderDetails.shippingInfo.alternate_mobile_number}}</span>
+          </address>
+        </div>
+        <div class="col-sm-6 col-content-end">
+          <div>
+            <div class="invoice-row d-block">
+              <h3 class="font-weight-semibold text-dark">{{ 'InvoiceNo' | translate}} :</h3>
+              <div>#{{orderDetails.invoiceId}}</div>
+            </div>
+            <div class="invoice-row">
+              <span class="font-weight-semibold text-dark">{{'Date' | translate}} :</span>
+              <div>{{orderDetails.created_at | date :'short'}}</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="row m-t-20">
+        <div class="col-sm-12">
+          <nz-table #orderTable [nzData]="itemData" [nzShowPagination]="false">
+            <thead>
+              <tr>
+                <th>{{'No' | translate}}</th>
+                <th>{{'Items' | translate}}</th>
+                <th>{{'Quantity' | translate}}</th>
+                <th>{{'Price' | translate}}</th>
+                <th>{{'Total' | translate}}</th>
+                <th>{{'Review' | translate}}</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of orderTable.data; let i = index;">
+                <td>{{i + 1}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.quantity}}</td>
+                <td>${{getSinglePrice(item) | number:'2.2-5'}}</td>
+                <td>
+                  ${{getPrice(item) | number:'2.2-5'}}
+
+                </td>
+                <td>
+                  <button nz-button nzType="primary" (click)="addReview(item)">
+                    <span>Add Review</span>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </nz-table>
+          <div class="row m-t-30 lh-1-8">
+            <div class="col-sm-12">
+              <div class="float-right text-right">
+                <p>{{'SubTotalAmount' | translate}}: ${{orderDetails.totalPrice}}</p>
+
+                <hr>
+                <h3><span class="font-weight-semibold text-dark">{{'Total' | translate}} :</span>
+                  ${{orderDetails.totalPrice}}</h3>
+              </div>
+            </div>
+          </div>
+          <div class="row m-t-30 lh-2">
+            <div class="col-sm-12">
+              <div class="border top bottom p-v-20">
+                <p class="text-opacity"><small>{{'InvoiceNote' | translate}}</small></p>
+              </div>
+            </div>
+          </div>
+          <div class="row m-v-20 invoice-footer">
+            <div class="col-sm-6">
+              <img class="img-fluid text-opacity m-t-5" width="100" src="assets/images/logo/logo.png" alt="">
+            </div>
+            <div class="col-sm-6 text-right">
+              <small><span class="font-weight-semibold text-dark">{{'Phone' | translate}}:</span> (123)
+                456-7890</small>
+              <br>
+              <small>support@themenate.com</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </nz-card>
+</div>

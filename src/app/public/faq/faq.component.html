@@ -1,0 +1,208 @@
+<section class="faq-sec">
+    <div class="page-title">
+        Frequently asked questions
+    </div>
+
+    <!-- <nz-collapse nzAccordion>
+        <nz-collapse-panel *ngFor="let panel of panels" [nzHeader]="panel.name" [nzActive]="panel.active">
+            <div>{{panel.description}}</div>
+          <img src="{{panel.image}}" *ngIf="panel.image"/>
+        </nz-collapse-panel>
+      </nz-collapse> -->
+
+
+  <div class="container">
+        <div class="faq-main">
+            <div class="accordian-sec">
+                <nz-collapse nzAccordion>
+                    <nz-collapse-panel nzHeader="{{'notFindArticle' | translate}}">
+                        <div class="accordian-body">
+                            <p>
+                                {{'doubleCheckPublished' | translate}} <!--and not as “draft” or “in rereading”-->.
+                            </p>
+                            <img src="assets/images/faq/publish-article-en.png" *ngIf="enFaqImg"/>
+                            <img src="assets/images/faq/publish-article-fr.png" *ngIf="frFaqImg" />
+                            <img src="assets/images/faq/publish-article-es.png" *ngIf="esFaqImg"/>
+                        </div>
+                    </nz-collapse-panel>
+                      <nz-collapse-panel nzHeader="{{'doNotSeeFollowBtn' | translate}}">
+                        <div class="accordian-body">
+                            <p>
+                                {{'doNotSeeFollowBtnNotlogin' | translate}}
+                            </p>
+                        </div>
+                      </nz-collapse-panel>
+                      <nz-collapse-panel nzHeader="{{'whatIsSlug' | translate}}">
+                        <div class="accordian-body">
+                            <p>
+                                {{'SlugAnswer' | translate}}
+                            </p>
+                        </div>
+                    </nz-collapse-panel>
+                    <nz-collapse-panel nzHeader="{{'unsubscribeNewsletter' | translate}}">
+                        <div class="accordian-body">
+                            <p>
+                                {{'noWorryTxt' | translate}} <a href="https://mytrendingstories.com/unsubscribe-newsletter">{{'unsubscribeLink' | translate}}</a>  
+                            </p>
+                            
+                            </div>
+                    </nz-collapse-panel>
+                    <nz-collapse-panel nzHeader="{{'embedVideo' | translate}}">
+                        <div class="accordian-body">
+                            <p>{{'yesYouCan' | translate}}</p>
+                            
+                            <ol>
+    
+                                <li>{{'youtubeVideoPage' | translate}}</li>
+    
+                                <li> 
+                                    {{'embedVideoTxt' | translate}}
+                                 <iframe width="560" height="315" src="https://www.youtube.com/embed/slGXjuW_wxE" frameborder="0" allowfullscreen></iframe></li>
+    
+                                <li> {{'backOnMTSTxt' | translate}}</li>
+                            </ol>
+                            
+                            </div>
+                    </nz-collapse-panel>
+                    <nz-collapse-panel nzHeader="{{'stillNotShowingArticle' | translate}}">
+                        <div class="accordian-body">
+                            <p>
+                                {{'checkSavedAsPublish' | translate}} <!--and not as “draft” or “in rereading”-->. 
+                            </p>
+                            <img src="assets/images/faq/publish-article-en.png" *ngIf="enFaqImg"/>
+                            <img src="assets/images/faq/publish-article-fr.png" *ngIf="frFaqImg" />
+                            <img src="assets/images/faq/publish-article-es.png" *ngIf="esFaqImg"/>
+                            </div>
+                    </nz-collapse-panel>
+                    <nz-collapse-panel nzHeader="{{'howPostedArticle' | translate}}">
+                        <div class="accordian-body">
+                            <p>
+                                {{'staffMemberRandomly' | translate}}
+                            </p>
+                            </div>
+                    </nz-collapse-panel>
+                    <nz-collapse-panel nzHeader="{{'whatCanIDo' | translate}}">
+                        <div class="accordian-body">
+                            <p>
+                                {{'mtsNewWeb' | translate}}
+                            </p>
+                            <p>
+                                {{'mtsServeTxt' | translate}}
+                            </p>
+                            <p>
+                                {{'mtsTerms' | translate}}
+                            </p>
+                            <p>
+                                {{'mtsInTerms' | translate}}
+                            </p>
+                            <p>
+                                {{'mtsTerms2' | translate}}
+                            </p>
+    
+                        </div>
+                    </nz-collapse-panel>
+                    <nz-collapse-panel nzHeader="{{'notAbletoAddAvtar' | translate}}">
+                        <div class="accordian-body">
+                            <p>
+                                {{'mtsTxt2' | translate}} 
+                            </p>
+                            <ol>
+                               <li>{{'FAQImageUpload' | translate}}</li>
+    
+                               <li> {{'FAQBio' | translate}}</li>
+    
+                               <li> {{'FAQSave' | translate}}</li>
+    
+                               <li> {{'FAQRedirectPage' | translate}}</li>
+                            </ol>
+                            <p>
+                                {{'FAQEmail' | translate}}
+                            </p>
+                            </div>
+                    </nz-collapse-panel>
+                    <nz-collapse-panel nzHeader="{{'howAddArticle' | translate}}"> 
+                        <div class="accordian-body">
+                            <ol>
+                                <li>
+                                    <!-- Click on  +New article: -->
+                                    {{'clickOnAvatar' | translate}}
+                                    <img src="assets/images/faq/avtar-click-en.png" *ngIf="enFaqImg"/>
+                                    <img src="assets/images/faq/avtar-click-fr.png" *ngIf="frFaqImg" />
+                                    <img src="assets/images/faq/avtar-click-es.png" *ngIf="esFaqImg"/>  
+                                </li>
+                                <li>
+                                    {{'clickOnProfile' | translate}} 
+                                    <img src="assets/images/faq/manage-profile-en.png" *ngIf="enFaqImg"/>
+                                    <img src="assets/images/faq/manage-profile-fr.png" *ngIf="frFaqImg" />
+                                    <img src="assets/images/faq/manage-profile-es.png" *ngIf="esFaqImg"/>
+                                </li>
+                                <li>
+                                    {{'clickOnNewArticle' | translate}}
+                                    <img src="assets/images/faq/new-article-en.png" *ngIf="enFaqImg"/>
+                                    <img src="assets/images/faq/new-article-fr.png" *ngIf="frFaqImg" />
+                                    <img src="assets/images/faq/new-article-es.png" *ngIf="esFaqImg"/>
+                                </li>
+                                <!-- <li>
+                                     Click on "Published" if you would like for your article to be published once it is saved​
+                                    <img src="assets/images/faq/new-article.png" />
+                                </li>
+                                <li>
+                                    When you are done writing you article click on "Save" 
+                                    <img src="assets/images/faq/faq-2.png" />
+                                </li> -->
+                                
+                            </ol>
+                        </div>
+                    </nz-collapse-panel>
+                    <!-- <nz-collapse-panel nzHeader="{{'FAQConnectSocialMedia' | translate}}">
+                        <div class="accordian-body">
+                            <p>
+                                {{'FAQTestedAvatar' | translate}} 
+    
+                            </p>
+                                <img src="assets/images/faq/faq-3.png" />
+                                <img src="assets/images/faq/faq-4.png" />
+                            </div>
+                    </nz-collapse-panel> -->
+                    <nz-collapse-panel nzHeader="{{'howCanIaddBio' | translate}}">
+                        <div class="accordian-body">
+                            <p>
+                                {{'WeJustTested' | translate}} 
+    
+                            </p>
+                            <ol>
+                                <li>
+                                    {{'FAQLoginAccount' | translate}} 
+                                    <img src="assets/images/faq/avtar-click-en.png" *ngIf="enFaqImg"/>
+                                    <img src="assets/images/faq/avtar-click-fr.png" *ngIf="frFaqImg" />
+                                    <img src="assets/images/faq/avtar-click-es.png" *ngIf="esFaqImg"/>  
+                                </li>
+                                <li>
+                                    {{'clickOnManageProfile' | translate}}
+                                    <img src="assets/images/faq/manage-profile-en.png" *ngIf="enFaqImg"/>
+                                    <img src="assets/images/faq/manage-profile-fr.png" *ngIf="frFaqImg" />
+                                    <img src="assets/images/faq/manage-profile-es.png" *ngIf="esFaqImg"/>
+                                </li>
+                                <li>
+                                    {{'clickOnAccountSetting' | translate}}
+                                    <img src="assets/images/faq/account-setting-en.png" *ngIf="enFaqImg"/>
+                                    <img src="assets/images/faq/account-setting-fr.png" *ngIf="frFaqImg" />
+                                    <img src="assets/images/faq/account-setting-es.png" *ngIf="esFaqImg"/>
+                                </li>
+                                <li>
+                                    {{'clickOnUploadInfo' | translate}}
+                                    <img src="assets/images/faq/upload-info-en.png" *ngIf="enFaqImg"/>
+                                    <img src="assets/images/faq/upload-info-fr.png" *ngIf="frFaqImg" />
+                                    <img src="assets/images/faq/upload-info-es.png" *ngIf="esFaqImg"/>
+                                </li>
+                            </ol>
+                                
+                            </div>
+                      </nz-collapse-panel>
+                  </nz-collapse>
+              
+            </div>
+            
+        </div>
+    </div> 
+</section>

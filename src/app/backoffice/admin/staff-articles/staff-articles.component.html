@@ -1,0 +1,119 @@
+<div class="container">
+    <div class="profile-article-list">
+
+        <nz-input-group nzSearch class="m-t-10" nzSize="large">
+            <nz-alert class="m-b-10 m-t-10" nzType="warning" nzDescription=" {{ 'ArtifiSearchInfo' | translate }}"
+                nzShowIcon></nz-alert>
+            <div class="row">
+
+                <div class="col-md-3">
+                    <nz-form-item>
+                        <nz-form-control>
+                            <input type="text" nz-input placeholder=" {{ 'ArticleSearchByTitle' | translate }}"
+                                [(ngModel)]="articleTitle" />
+                        </nz-form-control>
+                    </nz-form-item>
+                </div>
+
+                <div class="col-md-3">
+                    <nz-form-item>
+                        <nz-form-control>
+                            <input type="text" nz-input placeholder=" {{ 'ArtSearchBySlug' | translate }}"
+                                [(ngModel)]="searchSlug" />
+                        </nz-form-control>
+
+                    </nz-form-item>
+                </div>
+
+                <div class="col-md-5">
+                    <nz-form-item>
+                        <nz-form-control>
+                            <button nz-button nzType="primary" nzSize="large" nzSearch (click)="getArticle()"
+                                [disabled]="!articleTitle && !searchSlug ?true:false">{{'MemSearch' | translate}}</button>
+                            <button class="m-l-10" nz-button nzType="primary" nzSize="large" nzSearch
+                                (click)="resetSearch()">{{'Reset' | translate}}</button>
+
+
+
+                        </nz-form-control>
+                    </nz-form-item>
+                </div>
+
+            </div>
+
+
+            <!-- 
+            <input type="text" nz-input placeholder=" {{ 'MemListEditSearch' | translate }}" [(ngModel)]="memberSlug" />
+
+            <input type="text" nz-input placeholder=" {{ 'MemListEditSearch' | translate }}" [(ngModel)]="memberName" /> -->
+
+        </nz-input-group>
+
+        <nz-alert class="m-b-10 m-t-10" nzType="warning" nzDescription=" {{ 'ArtNotFound' | translate }}" nzShowIcon
+            *ngIf="notFound"></nz-alert>
+
+        <ng-template #suffixButton>
+            <button nz-button nzType="primary" nzSize="large" nzSearch [disabled]="!searchSlug?true:false"
+                (click)="getArticleSearchBySlug()">{{'ArtSearchAndEdit' | translate}}</button>
+        </ng-template>
+
+        <nz-empty nzNotFoundImage="simple" *ngIf="!articles?.length" [nzNotFoundContent]="contentTpl">
+            <ng-template #contentTpl>
+                <span>{{'artNoArt' | translate}} </span>
+            </ng-template>
+        </nz-empty>
+
+        <div class="profile-article-item-main">
+            <nz-card *ngFor="let item of (articles)" class="profile-article-item">
+                <nz-skeleton [nzLoading]="loading" [nzActive]="loading">
+                    <div class="profile-artical-list-item">
+                        <div class="profile-artical-img">
+                            <img class="img-fluid" [src]="replaceImage(item?.image?.url)" [alt]="item.title"
+                                *ngIf="item?.image">
+                            <nz-empty [nzNotFoundContent]="null" nzNotFoundImage="simple" *ngIf="!item?.image">
+                            </nz-empty>
+                        </div>
+                        <div class="profile-artical-detail">
+
+                            <div class="profile-artical-info">
+                                <div class="profile-article-avtar">
+                                    <div class="d-flex align-items-center">
+                                        <nz-avatar nzSize="medium" [nzSrc]="replaceImage(item.author?.avatar.url)">
+                                        </nz-avatar>
+                                        <div class="m-l-10">
+                                            <span class="">{{item.author?.fullname}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="profile-article-date">
+                                        <nz-divider nzType="vertical"></nz-divider>
+                                        <span>{{item.published_on | date:'medium'}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <h4><span *ngIf="item.status == 'draft'" style="color: red;">{{'artDraft' | translate}}:
+                                </span>{{item.title}}</h4>
+                            <p>
+                                <span>{{item.excerpt}}</span>
+                            </p>
+                            <div class="profile-artical-read-more text-center">
+                                <a [routerLink]="['/app/article/single',item.slug]" class="article-read-more m-5"
+                                    nz-button nzType="default" nzGhost>{{'artReadMore' | translate}}</a>
+                                <a [routerLink]="['/app/article/compose']" [queryParams]="{article: item.id}"
+                                    class="article-edit-link m-5" nz-button nzType="default"
+                                    nzGhost>{{'artEdit' | translate}}</a>
+                                <a (click)="deleteArticle(item.id)" class="article-edit-link m-5" nz-button
+                                    nzType="default" nzGhost>{{'deleteArticle' | translate}}</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </nz-skeleton>
+            </nz-card>
+        </div>
+        <div class="m-t-30 text-center">
+            <nz-spin nzSimple [nzSize]="'large'" *ngIf="loadingMore" nzTip="{{'artLoadingMore' | translate}}"></nz-spin>
+        </div>
+
+    </div>
+
+</div>

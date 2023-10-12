@@ -1,0 +1,282 @@
+.mega-menu-header{
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+    .shopping-header{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: center;
+        max-width: 1200px;
+        margin: 0px auto;
+        .category-dropdown{
+            width:220px;
+        }
+        .mega-search{
+            flex: 1;
+            margin: 0px 40px;
+            position: relative;
+            ::ng-deep .ant-input-affix-wrapper {
+                border-radius: 3px;
+                background: #f5f5f6;
+                padding: 12px 15px 8px 9px;
+                input.ant-input{
+                    background: transparent;
+                    font-family: "josefin_sansregular";
+                    order: 1;
+                    margin-left: 12px;
+                    font-size: 16px;
+                    color: #000;
+                      &::-webkit-input-placeholder {
+                        color: #696E79;
+                      }
+                      
+                      &:-ms-input-placeholder { 
+                        color: #696E79;
+                      }
+                      
+                      &::placeholder {
+                        color: #696E79;
+                      }
+                }
+                .ant-input-suffix{
+                    svg{
+                        width:20px;
+                         height: 20px;
+                    }
+                }
+                
+
+            }
+
+        }
+        .mega-cart{
+            display: flex;
+            align-items: center;
+            a{
+                margin: 0px 10px;
+                .cart-btn{
+                    position: relative;
+                    text-align: center;
+                    svg{
+                        width:25px;
+                        margin-right: 5px;
+                    }
+                    span{
+                        margin-left: 5px;
+                        display: inline-block;
+                        min-width: 25px;
+                        height: 25px;
+                        line-height: 25px;
+                        border-radius: 40px;
+                        background: #000000;
+                        font-size: 13px;
+                        color: #fff;
+                        text-align: center;
+                        padding: 0px 5px;
+                        font-family: "open_sansregular";
+                        font-weight: 500;
+                        position: absolute;
+                        top: -15px;
+                        right: -15px;
+                    }
+                    
+                    
+                }
+                h3{
+                    font-size: 14px;
+                    font-family: "josefin_sansregular";
+                    margin-top: 5px;
+                    margin-bottom: 0px;
+                }
+            }
+        }
+    }
+}
+::ng-deep ais-instantsearch{
+    flex:1;
+}
+::ng-deep .ais-SearchBox-form{
+    position: relative;
+	::ng-deep  .ais-SearchBox-input{
+        border: 1px solid #d9d9d9;
+		border-radius: 3px;
+        background: #f5f5f6;
+        padding: 12px 15px 8px 10px;
+        width:100%;
+		font-family: 'josefin_sanslight';
+		font-size: 18px;
+		box-sizing: border-box;
+		&::-webkit-input-placeholder {
+			color: #acaaaa;
+		}
+		&:-ms-input-placeholder {
+			color: #acaaaa;
+		}
+		&::placeholder {
+			color: #acaaaa;
+		}
+	}
+	.ais-SearchBox-submit{
+		max-width: 100%;
+		position: absolute;
+		top: 26px;
+		right: 20px;
+		left: auto;
+		outline:none;
+		.ais-SearchBox-submitIcon {
+			width: 20px;
+			height: 20px;
+			path{
+				fill: #cacaca;
+			}
+		}
+	}
+	.ais-SearchBox-reset{
+		right: 50px;
+		outline: none;
+		position: absolute;
+		top: 16px;
+		border: 0px;
+		background: transparent;
+		.ais-SearchBox-resetIcon {
+			width: 14px;
+			height: 14px;
+			path{
+				fill: #cacaca;
+			}
+		}
+	}
+}
+::ng-deep .ais-SearchBox-submit {
+    padding: 0;
+    overflow: visible;
+    font: inherit;
+    line-height: normal;
+    color: inherit;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin:0px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    position: absolute;
+    z-index: 1;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    right: 0.3rem;
+    transform: translateY(-50%);
+}
+
+::ng-deep .autocomplete-box {
+    position: absolute;
+    width: 100%;
+    top: 100%;
+    .ais-Hits {
+      background: #fff;
+      border: 1px solid #cacaca;
+      position: relative;
+      z-index: 4;
+      padding: 20px;
+      border-top: 0px;
+      max-height: 300px;
+      overflow-y: auto;
+  
+      &::-webkit-scrollbar {
+        width: 6px;
+      }
+  
+      &::-webkit-scrollbar-track {
+        background: #eee;
+      }
+  
+      &::-webkit-scrollbar-thumb {
+        background: #ccc;
+        border-radius: 10px;
+      }
+  
+      ul {
+        padding: 0px;
+        margin: 0px;
+  
+        >li {
+          list-style: none;
+  
+          a {
+            color: #000;
+            font-size: 14px;
+            padding: 4px 5px;
+            display: block;
+            &.highlightResultBlack{
+              color: #000;
+            }
+            &.highlightResult{
+              color: #0079d0;
+            }
+            &:hover {
+              background: #eee;
+            }
+          }
+        }
+      }
+    }
+}
+  
+::ng-deep .Show-autocomplete-box {
+    .ais-SearchBox-form {
+        .ais-SearchBox-input {
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+        }
+    }
+}
+@media screen and (max-width:580px){
+    .mega-menu-header{
+        .shopping-header{
+            justify-content: space-between;
+            .category-dropdown{
+                width:auto; 
+                order:2;
+            }
+            .mega-search{
+                order:2;
+                flex: unset;
+                width:100%;
+                padding: 0px;
+                margin-top: 10px;
+              
+            }
+            .mega-cart{
+                order:1;
+                padding: 0px 10px;
+                a{
+                    h3{
+                        margin-bottom: 0px;
+                    }
+                }
+            }
+        }
+    }
+
+   
+
+
+    .mega-menu-header{
+        .shopping-header{
+            .mega-search{
+                order:0;
+                width: calc(100% - 50px);
+                flex:1;
+            }
+            .mega-cart{
+                order:1
+            }
+        }
+    }
+}

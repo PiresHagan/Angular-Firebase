@@ -1,0 +1,15 @@
+
+<section>
+    <app-shop-header></app-shop-header>
+</section>
+<section class="deal-of-day top-store">
+    <div class="container">
+        <div class="deal-of-day-box">
+            <nz-skeleton [nzActive]="true" *ngIf="!stores"> </nz-skeleton>
+            <div class="deal-of-day-item" *ngFor="let store of stores">
+                <app-store [store]="store"></app-store>
+             </div>
+
+        </div>
+    </div>
+</section>

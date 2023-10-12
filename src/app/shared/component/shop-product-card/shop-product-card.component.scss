@@ -1,0 +1,165 @@
+.buy-btn {
+    background-color: #ff4020;
+    border: 0px;
+    color: #fff;
+    padding: 0.65rem 1.25rem;
+    line-height: 1.25;
+    height: auto;
+    border-radius: 5px;
+    font-size: 14px;
+    outline: none;
+    cursor: pointer;
+}
+::ng-deep .single-product{
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    a{
+        z-index: 1;
+    }
+    // &:hover{
+    //     box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.03);
+    //     background: #fff;
+    // }
+
+    .wishlist-icon{
+        padding: 0px;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: transparent;
+    }
+    &:hover .wishlist-icon{
+        box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.03);
+        // background: #fff;
+    }
+    .product-img{
+        height: 250px;
+        position: relative;
+        overflow: hidden;
+        border-radius: 5px;
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+        border-bottom:1px solid #DEDEDE;
+        >img{
+            max-width: 100%;
+            max-height: 100%;
+        }
+    }
+    &:hover .product-img{
+        box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.05);
+        background: #fff;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
+    &:hover{
+        .product-body{
+            background: #fff;
+        }
+    }
+    .product-body{
+        padding: 15px;
+        position: relative;
+        h2{
+            font-family: josefin_sansregular;
+            font-size: 18px;
+            color: #000;
+            line-height: 26px;
+            margin-top: 20px;
+            font-weight: 600;
+            word-break: break-all;
+            margin: 0px;
+            -webkit-box-orient: vertical;
+            height: 25px;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+        }
+        p{
+            font-family: open_sansregular;
+            font-size: 15px;
+            font-weight: 400;
+            color: #464444;
+            line-height: 24px;
+            word-break: break-all;
+            -webkit-box-orient: vertical;
+            height: 50px;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+        }
+        .price{
+            font-family: "josefin_sansregular";
+            font-size: 22px;
+            color: #000;
+            display: flex;
+            align-items: center;
+            .discount{
+                padding-left: 15px;
+                font-size: 20px;
+                color: #ababab;
+                text-decoration: line-through;
+                font-family: "josefin_sanslight";
+                display: block;
+            }
+        }
+
+    }
+    .product-footer{
+        padding: 0px 15px 15px 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        button{
+            background: transparent;
+            padding:0px;
+            img{
+                width:35px;
+            }
+        }
+        .rating-list{
+            li{
+                list-style: none;
+                i{
+                    font-size: 14px;
+                }
+            }
+            h4{
+                margin: 0px;
+                color:#6b6673;
+                font-size: 16px;
+                font-family: "open_sansregular";
+                font-weight: 600;
+            }
+            .rating-value{
+                color: #000000;
+                border-radius: 30px;
+                padding: 7px 9px 0px 0px;
+                line-height: 17px;
+                font-size: 20px;
+            }
+        }
+    }
+   ::ng-deep &.store{
+        .product-item{
+            position: relative;
+            .product-body{
+                position: absolute;
+                top:0px;
+                left: 0px;
+            }
+        }
+    }
+}
+
+.coming-soon{
+    margin-top: 10px;
+}
+
+

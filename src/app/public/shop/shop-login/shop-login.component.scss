@@ -1,0 +1,78 @@
+.signup-section{
+	.signup-left-area{
+		.title {
+			margin-bottom: 25px;
+			font-size: 22px;
+			color: #000000;
+			text-align: left;
+			border-bottom: 1px solid #ccc;
+			padding-bottom: 10px;
+			margin-top: 30px;
+		}
+		.signup-form{
+			::ng-deep .ant-form-item-control-input-content{
+				position: relative;
+				.ant-input{
+					padding-left: 45px;
+					border-color: #ccc;
+				}
+				img{
+					position: absolute;
+					top:5px;
+					left: 10px;
+				}
+			}
+			
+		}
+		.login-form{
+			max-width: 450px;
+			::ng-deep .ant-form-item-control-input-content{
+				.ant-input{
+					border-color: #ccc;
+				}
+			}
+			.login-form-margin{
+				margin-bottom: 15px;
+			}
+		}
+		.is-login-btn {
+			padding: 7px 20px;
+			color: #fff;
+			background: #ff4020;
+			border-radius: 25px;
+			font-family: "josefin_sanssemibold";
+			font-size: 20px;
+			border:0px;
+			outline: none;
+			margin-top: 10px;
+			&:focus{
+				outline: none;
+			}
+		}
+		.footer-btn{
+			margin-top: 20px;
+			padding-top: 10px;
+			border-top: 1px solid #ccc;
+			text-align: center;
+		}
+	}
+}
+
+#hide-signup{
+    display: none;
+}
+
+
+
+@media only screen and (max-width:991px) {
+	::ng-deep .hide-modal-footer{
+		.ant-modal{
+			width:90% !important;
+		}
+	}
+}
+
+:host ::ng-deep .ant-alert-icon {
+    top: 6px;
+}
+

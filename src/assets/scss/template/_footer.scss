@@ -1,0 +1,14 @@
+.footer {
+    padding: 0px $layout-content-gutter;
+    font-size: 90%;
+    background: #000000;
+    color: #ffffff;
+    
+
+    .footer-content {
+        display: flex;
+        height: $footer-height;
+        align-items: center;
+        border-top: 1px solid $border-color;
+    }
+}

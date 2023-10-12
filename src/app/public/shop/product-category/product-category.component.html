@@ -1,0 +1,37 @@
+<section>
+    <app-shop-header></app-shop-header>
+</section>
+<section class="category-sec">
+    <div class="container">
+        <div class="back-btn d-flex">
+            <a (click)="goBack()">
+              <img src="assets/images/back-arrow.svg" alt="">
+            </a>
+            <h2>{{selectedCategoryTitle}}</h2>
+        </div>
+       
+        <a class="child-tag" [ngClass]="{'active': selectedSubCategorySlug == subcategory.slug }" (click)="onClickSubCategory(subcategory)" *ngFor="let subcategory of subCategoriesList; let i=index">
+            {{subcategory.title}}
+        </a>
+        <div class="filter-row">
+            <div class="product-title m-0 p-0">
+                <h2>Featured Products</h2>
+            </div>
+            <div class="filter-dropdown">
+                <nz-select class="sorting-dropdown" nzAllowClear nzPlaceHolder="Sort By" [(ngModel)]="selectedFilterCode" (ngModelChange)="getProductsWithSelectedData($event)">
+                    <nz-option nzLabel="Latest Products" nzValue="newest"></nz-option>
+                    <nz-option nzLabel="Show Low to High Price" nzValue="low"></nz-option>
+                    <nz-option nzLabel="Show High to Low Price" nzValue="high"></nz-option>
+                  </nz-select>
+            </div>
+        </div>
+        
+        <div *ngIf="noProduct" class="text-center pt-4"><h2>No product found</h2></div>
+        <div class="product-list">
+            <div class="product" *ngFor="let product of products">
+                <nz-skeleton [nzActive]="true" *ngIf="!product"> </nz-skeleton>
+                <shop-product-card [product]="product"></shop-product-card>
+            </div>
+        </div>
+    </div>
+</section>

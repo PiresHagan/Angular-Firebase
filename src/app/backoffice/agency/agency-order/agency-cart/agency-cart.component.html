@@ -1,0 +1,70 @@
+<div class="cart-modal">
+    <div class="agency-cart-btn" (click)="showModal()">
+        <i nz-icon nzType="shopping-cart" nzTheme="outline"></i>
+        <div class="agency-cart-count">{{cartItems.length}}</div>
+    </div>
+    
+    <ng-container *ngIf="VisibleCart">
+        <div class="cart-modal-main">
+            <div *ngIf="cartItems.length===0">
+                <div class="cart-modal-header">
+                    <h2>
+                        Cart ({{cartItem.length}})
+                    </h2>
+                    <div (click)="closeCart()">
+                        <i class="fas fa-times"></i>
+                    </div>
+                </div>
+                <div class="cart-modal-body">
+                    Your cart is empty
+                </div>
+            </div>
+            <div *ngIf="cartItems.length > 0">
+                <div class="cart-modal-header">
+                    <h2>
+                        Cart ({{cartItems.length}})
+                    </h2>
+                    <div (click)="closeCart()">
+                        <i class="fas fa-times"></i>
+                    </div>
+                </div>
+                <div class="cart-modal-body">
+                    <div class="agency-cart-popup-row"  *ngFor="let cartData of cartItems">
+                        <h2>
+                            {{cartData.productName}}
+                        </h2>
+                        <div class="cart-quantity">
+                            <!-- <div class="quantity-count">
+                                <nz-button-group>
+                                <button nz-button (click)="minCount()"><i nz-icon nzType="minus"></i></button>
+                                <button nz-button>
+                                    <nz-badge [nzCount]="count">
+                                        <a class="head-example"></a>
+                                    </nz-badge>
+                                </button>
+                                <button nz-button (click)="addCount()"><i nz-icon nzType="plus"></i></button>
+                                </nz-button-group>
+                            </div> -->
+                            <span>{{cartData.price | currency: 'USD'}}</span>
+                            <span> X </span>
+                            <span>{{cartData.qty}}</span>
+                            <span> = </span>
+                            <span>{{(cartData.qty * cartData.price) | currency: 'USD'}}</span>
+                        </div>
+                    </div>
+                    <div class="agency-cart-popup-row">
+                        <h3 class="">
+                           Total
+                        </h3>
+                        <div class="cart-quantity">
+                            <h3>{{cartTotal | currency: 'USD'}}</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="cart-modal-footer">
+                    <button type="button" class="red-btn">Continue</button>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+</div>

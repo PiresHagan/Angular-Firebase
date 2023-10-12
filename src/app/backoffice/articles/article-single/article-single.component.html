@@ -1,0 +1,56 @@
+<nz-card>
+    <div class="container">
+        <nz-skeleton [nzLoading]="loading" [nzActive]="loading">
+            <h2 class="font-weight-normal m-b-10">{{article.title}}</h2>
+            <div class="media align-items-center m-b-25">
+                <nz-avatar nzSrc="{{replaceImage(article.author?.avatar?.url)}}"></nz-avatar>
+                <div class="m-l-10">
+                    <h6 class="m-b-0">{{article.author?.fullname}}</h6>
+                    <span class="text-muted font-size-13">{{article.published_at | date:'medium'}}</span>
+                </div>
+            </div>
+            <img class="img-fluid w-100" [src]="replaceImage(article?.image?.url)" alt="">
+            <div class="m-t-30 lh-1-8" innerHTML="{{article.content}}">
+
+            </div>
+            <div class="m-t-30" [hidden]="!fileURL" [class.data-not]="!fileURL">
+                <iframe [src]="transform(fileURL)" width="100%" height="650px"
+                    allow="autoplay; fullscreen; encrypted-media; picture-in-picture" allowfullscreen
+                    frameborder="0"></iframe>
+
+            </div>
+            <audio controls class="m-t-10 m-b-10" [hidden]="article?.type !=AUDIO"
+                [class.data-not]="article?.type !=AUDIO">
+                <source [src]="article?.article_file?.url" type="audio/mpeg">
+                Your browser does not support the audio tag.
+            </audio>
+            <hr>
+            <div class="m-t-40">
+                <nz-list [nzDataSource]="articleComments" [nzRenderItem]="item" [nzItemLayout]="'horizontal'">
+                    <ng-template #item let-item>
+                        <nz-comment nzAuthor="{{item.author?.fullname}}"
+                            nzDatetime="{{item?.published_on | date:'medium' }}">
+
+                            <a nz-button nzType="primary" *ngIf="isStaff" style="padding-top:10px"
+                                (click)="deleteComment(article.id,item.id)">
+                                {{'deleteFundraiser' | translate}}
+                            </a>
+                            <nz-avatar nz-comment-avatar nzIcon="user"
+                                nzSrc="{{replaceImage(item.author?.avatar?.url)}}">
+                            </nz-avatar>
+                            <nz-comment-content>
+                                <p innerHTML={{item.replied_on}} *ngIf="item.replied_on" class="replied-comment"></p>
+                                <p innerHTML={{item.message}}></p>
+                            </nz-comment-content>
+                        </nz-comment>
+                    </ng-template>
+                </nz-list>
+            </div>
+            <div class="m-t-30 text-center">
+                <nz-spin nzSimple [nzSize]="'large'" *ngIf="loadingMore"
+                    nzTip="{{'artLoadingMoreComment' | translate}}">
+                </nz-spin>
+            </div>
+        </nz-skeleton>
+    </div>
+</nz-card>

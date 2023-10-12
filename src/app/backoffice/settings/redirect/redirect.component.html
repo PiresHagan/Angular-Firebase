@@ -1,0 +1,14 @@
+<nz-card>
+  <ng-template #indicatorTemplate><i nz-icon nzType="loading"
+      style=" font-size: 24px;"></i>{{'LinkdinLinking'| translate}}.</ng-template>
+  <nz-spin nzSimple [nzIndicator]="indicatorTemplate" *ngIf="!success && !error"> </nz-spin>
+
+  <nz-alert nzType="success" nzMessage="{{'Success' | translate}}" nzDescription="{{'AccountLinked' | translate}}"
+    nzShowIcon *ngIf="success">
+  </nz-alert>
+
+
+  <nz-alert nzType="error" nzMessage="{{'Error' | translate}}" nzDescription="{{'AccountNotLinked' | translate}}"
+    nzShowIcon *ngIf="error">
+  </nz-alert>
+</nz-card>
